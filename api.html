@@ -78,37 +78,114 @@ title: LavaCharts by kevinkhill
 <!--/Installing-->
 
 
-<!--Usage-->
+<!--Config-->
 	<div class="section s3">
             <div class="inner left">
                 <h1 class="heading">Config Objects</h1>
+                    <h2>All of the configuration objects can be created by one of two ways:</h2>
+                    <ul class="arrows">
+                        <li>Passing an associative array into the constructor.</li>
+                        <li>Using the configuration options as methods of the object. (Chainable, see Chaining section)</li>
+                        <li>The only exception is the jsDate object, it mimics the javascript date signature.</li>
+                    </ul><br />
+
+                    <h3>Background Color</h3>
                     <pre class="prettyprint inline">Lava::backgroundColor(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong>stroke</strong><em>string</em>The color of the chart border, as an HTML color string.</li>
+                        <li><strong>strokeWidth</strong><em>int</em>The border width, in pixels.</li>
+                        <li><strong>fill</strong><em>string</em>The chart fill color, as an HTML color string.</li>
+                    </ul><br />
+
                     <pre class="prettyprint inline">Lava::chartArea(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong>left</strong><em>integer</em>How far to draw the chart from the left border.</li>
+                        <li><strong>top</strong><em>integer</em>How far to draw the chart from the top border.</li>
+                        <li><strong>width</strong><em>integer</em>Width of the chart.</li>
+                        <li><strong>height</strong><em>integer</em>Height of the chart.</li>
+                    </ul><br />
+
                     <pre class="prettyprint inline">Lava::textStyle(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
+
                     <pre class="prettyprint inline">Lava::legend(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
+
                     <pre class="prettyprint inline">Lava::tooltip(array $config);</pre>
-                    <pre class="prettyprint inline">Lava::jsDate(array $config);</pre>
-                    <pre class="prettyprint inline">Lava::magnifyingGlass(array $config);</pre>
-                    <pre class="prettyprint inline">Lava::slice(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
+
                     <pre class="prettyprint inline">Lava::sizeAxis(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
+
                     <pre class="prettyprint inline">Lava::colorAxis(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
+
                     <pre class="prettyprint inline">Lava::hAxis(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
+
                     <pre class="prettyprint inline">Lava::vAxis(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
 
+                    <pre class="prettyprint inline">Lava::slice(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
 
+                    <pre class="prettyprint inline">Lava::magnifyingGlass(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
 
-                <ul class="arrows">
-                    <li>Getting up and running with LavaCharts is a breeze and you can follow along with these easy steps to get you going.</li>
-                    <li>You can also view the examples if you want to dive right in and look under the hood.</li>
-                    <li>These steps will show you how to put a simple line chart into your project.</li>
-                </ul>
-                <br />
-                <br />
-
+                    <pre class="prettyprint inline">Lava::jsDate(integers $year, $month, $day, $hour, $minute, $second, $millisecond);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
 
             </div>
     </div>
-<!--/Installing-->
+<!--/Configs-->
 
 
 <!--Examples-->

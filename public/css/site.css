@@ -26,6 +26,10 @@ ul li {
     margin:0 1.2em;
 }
 
+ul.padleft {
+    margin-left: -20px !important;
+}
+
 ul.arrows {
    margin-left: -40px;
    list-style:none;
@@ -36,6 +40,15 @@ ul.arrows li {
   margin:20px 0;
   background:url('images/arrow_bullet.png') no-repeat 0 0;
   padding-left:30px;
+}
+
+ul.arrows li em {
+    color: #93c763;
+    padding: 0 5px;
+}
+
+ul.arrows li strong {
+    color: #62AEFF;
 }
 
 p {
