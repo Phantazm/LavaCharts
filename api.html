@@ -54,10 +54,8 @@ title: LavaCharts by kevinkhill
 
                 <h2>The heart of the Chart, containing all of the data to display on the screen.</h2>
 
-                <h3>Syntax</h3>
-                <pre class="prettyprint inline">Lava::DataTable(string $label);</pre>
-
                 <h3>Methods</h3>
+                <pre class="prettyprint inline">Lava::DataTable(string $label);</pre>
                 <ul class="arrows">
                     <li>
                         <p>Assigns a label for the DataTable.</p>
@@ -99,20 +97,70 @@ title: LavaCharts by kevinkhill
                 <br/>
                 <h2>Chart Methods:</h2>
                 <ul class="arrows padleft">
-                    <li>The chart methods always return themselves, except for one, so options are chainable.</li>
-                    <li>The constructor of the Charts assigns a label, which will match itself with the DataTable.</li>
+                    <li>The chart methods always return themselves, except for "outputInto()", so options are chainable.</li>
+                    <li>The Charts all extend a parent class "Chart" to extend common options to all Chart classes.</li>
                 </ul>
 
-                <h3>Methods</h3>
-                <pre class="prettyprint inline">setConfig( array $options = array() )</pre>
+
+
+                <pre class="prettyprint inline">chartArea</pre>
                 <ul class="arrows padleft">
-                    <li><strong>options</strong><em>array</em>Sets configuration options from array of values.</li>
+                    <li><strong>chartArea</strong><em></em></li>
                 </ul><br />
 
-                <pre class="prettyprint inline">outputInto( string $elementID )</pre>
+                <pre class="prettyprint inline">colors</pre>
                 <ul class="arrows padleft">
-                    <li><strong>elementID</strong><em>string</em>Sets the Element ID of the HTML element to output the chart into.</li>
-                    <li>This method will output the javascript blocks into the page, the chart is rendered via javascript into $elementID</li>
+                    <li><strong>colors</strong><em></em></li>
+                </ul><br />
+<!--
+                <pre class="prettyprint inline">events</pre>
+                <ul class="arrows padleft">
+                    <li><strong>events</strong><em></em></li>
+                </ul><br />-->
+
+                <pre class="prettyprint inline">fontSize( integer $fontSize )</pre>
+                <ul class="arrows padleft">
+                    <li><strong>fontSize</strong><em>integer</em>Sets the global font size for all text in the chart.</li>
+                </ul><br />
+
+                <pre class="prettyprint inline">fontName</pre>
+                <ul class="arrows padleft">
+                    <li><strong>fontName</strong><em></em></li>
+                </ul><br />
+
+                <pre class="prettyprint inline">height</pre>
+                <ul class="arrows padleft">
+                    <li><strong>height</strong><em></em></li>
+                </ul><br />
+
+                <pre class="prettyprint inline">legend( legend $legend )</pre>
+                <ul class="arrows padleft">
+                    <li><strong>legend</strong><em>object (<a href="#legend">legend</a>)</em></li>
+                </ul><br />
+
+                <pre class="prettyprint inline">title</pre>
+                <ul class="arrows padleft">
+                    <li><strong>title</strong><em></em></li>
+                </ul><br />
+
+                <pre class="prettyprint inline">titlePosition</pre>
+                <ul class="arrows padleft">
+                    <li><strong>titlePosition</strong><em></em></li>
+                </ul><br />
+
+                <pre class="prettyprint inline">titleTextStyle</pre>
+                <ul class="arrows padleft">
+                    <li><strong>titleTextStyle</strong><em>object (<a href="#textStyle">textStyle</a>)</em></li>
+                </ul><br />
+
+                <pre class="prettyprint inline">tooltip</pre>
+                <ul class="arrows padleft">
+                    <li><strong>tooltip</strong><em></em></li>
+                </ul><br />
+
+                <pre class="prettyprint inline">width()</pre>
+                <ul class="arrows padleft">
+                    <li><strong></strong><em></em></li>
                 </ul><br />
             </div>
     </div>
@@ -126,13 +174,27 @@ title: LavaCharts by kevinkhill
 
                 <h2>Setting up the options for the charts:</h2>
                 <ul class="arrows padleft">
-                    <li>All charts have common configuration options, along with chart specific options</li>
+                    <li>This is the list of xxxx All charts have common configuration options, along with chart specific options</li>
                     <li>Options can be set be passing an associative array to the setConfig() method</li>
                     <li>OR options can be set by using/chaining corresponding option methods</li>
                 </ul><br />
 
-                <h2>Common Configuration</h2>
-                <p>These options are inherited from the master Chart class and apply to all charts.</p>
+                <h3>Parent Chart</h3>
+                <pre class="prettyprint inline">setConfig( array $options = array() )</pre>
+                <ul class="arrows padleft">
+                    <li><strong>options</strong><em>array</em>Sets configuration options from array of values.</li>
+                </ul><br />
+
+                <pre class="prettyprint inline">outputInto( string $elementID )</pre>
+                <ul class="arrows padleft">
+                    <li><strong>elementID</strong><em>string</em>Sets the Element ID of the HTML element to output the chart into.</li>
+                    <li>This method will output the javascript blocks into the page, the chart is rendered via javascript into $elementID</li>
+                </ul><br />
+
+                <pre class="prettyprint inline">backgroundColor</pre>
+                <ul class="arrows padleft">
+                    <li><strong>backgroundColor</strong><em></em></li>
+                </ul><br />
 
                 <h3>Chart Area</h3>
                 <p>Defines where the chart itself is drawn, excluding axis and legends.</p>
@@ -166,7 +228,7 @@ title: LavaCharts by kevinkhill
                     <h2>All of the configuration objects can be created by one of two ways:</h2>
                     <ul class="arrows">
                         <li>Passing an associative array into the constructor.</li>
-                        <li>Using the configuration options as methods of the object. (Chainable, see Chaining section)</li>
+                        <li>Using the configuration options as methods of the object. (<a href="#chaining">Chainable</a>, see Chaining section)</li>
                         <li>The only exception is the jsDate object, it mimics the javascript date signature.</li>
                     </ul><br />
 
@@ -187,7 +249,7 @@ title: LavaCharts by kevinkhill
                         <li><strong>height</strong><em>integer</em>Height of the chart.</li>
                     </ul><br />
 
-                    <h3>Text Style</h3>
+                    <h3>Text Style</h3><a name="textStyle"></a>
                     <pre class="prettyprint inline">Lava::textStyle(array $config);</pre>
                     <ul class="arrows padleft">
                         <li><strong>color</strong><em>string</em>Color of the text.</li>
@@ -195,35 +257,23 @@ title: LavaCharts by kevinkhill
                         <li><strong>fontSize</strong><em>string</em>Size of font, in pixels.</li>
                     </ul><br />
 
-                    <h3>Legend</h3>
+                    <h3>Legend</h3><a name="legend"></a>
                     <pre class="prettyprint inline">Lava::legend(array $config);</pre>
                     <ul class="arrows padleft">
                         <li><strong>position</strong><em>string</em>Position of the legend.</li>
                         <li><strong>alignment</strong><em>string</em>Alignment of the legend.</li>
-                        <li><strong>textStyle</strong><em>object (textStyle)</em>Text style of the legend.</li>
+                        <li><strong>textStyle</strong><em>object (<a href="#textStyle">textStyle</a>)</em>Text style of the legend.</li>
                     </ul><br />
 
-                    <h3>Tooltip</h3>
+                    <h3>Tooltip</h3><a name="tooltip"></a>
                     <pre class="prettyprint inline">Lava::tooltip(array $config);</pre>
                     <ul class="arrows padleft">
                         <li><strong>showColorCode</strong><em>boolean</em></li>
-                        <li><strong>textStyle</strong><em>object (textStyle)</em>Tooltip text style.</li>
+                        <li><strong>textStyle</strong><em>object (<a href="#textStyle">textStyle</a>)</em>Tooltip text style.</li>
                         <li><strong>trigger</strong><em>string</em>Trigger action of the tooltip.</li>
                     </ul><br />
 
-                    <h3>Horizontal Axis</h3>
-                    <pre class="prettyprint inline">Lava::hAxis(array $config);</pre>
-                    <ul class="arrows padleft">
-                        <li><strong></strong><em></em></li>
-                        <li><strong></strong><em></em></li>
-                        <li><strong></strong><em></em></li>
-                        <li><strong></strong><em></em></li>
-                        <li><strong></strong><em></em></li>
-                        <li><strong></strong><em></em></li>
-                        <li><strong></strong><em></em></li>
-                    </ul><br />
-
-                    <h3>Vertical Axis</h3>
+                    <h3>Axis</h3>
                     <pre class="prettyprint inline">Lava::vAxis(array $config);</pre>
                     <ul class="arrows padleft">
                         <li><strong></strong><em></em></li>
@@ -235,7 +285,32 @@ title: LavaCharts by kevinkhill
                         <li><strong></strong><em></em></li>
                     </ul><br />
 
-                    <h3>Color Axis</h3>
+
+                    <h3>Horizontal Axis extends Axis</h3><a name="hAxis"></a>
+                    <pre class="prettyprint inline">Lava::hAxis(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
+
+                    <h3>Vertical Axis extends Axis</h3><a name="vAxis"></a>
+                    <pre class="prettyprint inline">Lava::vAxis(array $config);</pre>
+                    <ul class="arrows padleft">
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                        <li><strong></strong><em></em></li>
+                    </ul><br />
+
+                    <h3>Color Axis</h3><a name="colorAxis"></a>
                     <pre class="prettyprint inline">Lava::colorAxis(array $config);</pre>
                     <ul class="arrows padleft">
                         <li><strong>minValue</strong><em>integer</em>Minimum value for chart color data.</li>
@@ -244,15 +319,15 @@ title: LavaCharts by kevinkhill
                         <li><strong>colors</strong><em>array</em>Colors to assign to values in the visualization.</li>
                     </ul><br />
 
-                    <h3>Slice</h3>
+                    <h3>Slice</h3><a name="slice"></a>
                     <pre class="prettyprint inline">Lava::slice(array $config);</pre>
                     <ul class="arrows padleft">
                         <li><strong>color</strong><em>string</em>The slice fill color.</li>
                         <li><strong>offset</strong><em>string</em>Offset amount.</li>
-                        <li><strong>textStyle</strong><em>object (textStyle)</em>Slice text style.</li>
+                        <li><strong>textStyle</strong><em>object (<a href="#textStyle">textStyle</a>)</em>Slice text style.</li>
                     </ul><br />
 
-                    <h3>Size Axis</h3>
+                    <h3>Size Axis</h3><a name="sizeAxis"></a>
                     <pre class="prettyprint inline">Lava::sizeAxis(array $config);</pre>
                     <ul class="arrows padleft">
                         <li><strong>maxSize</strong><em>integer</em>Maximum radius of the largest possible bubble, in pixels.</li>
@@ -261,13 +336,13 @@ title: LavaCharts by kevinkhill
                         <li><strong>minValue</strong><em>integer</em>The size value to be mapped to $this->minSize</li>
                     </ul><br />
 
-                    <h3>Magnifying Glass</h3>
+                    <h3>Magnifying Glass</h3><a name="magnifyingGlass"></a>
                     <pre class="prettyprint inline">Lava::magnifyingGlass(integer $zoomFactor);</pre>
                     <ul class="arrows padleft">
                         <li><strong>zoomFactor</strong><em>integer</em>Zoom factor of the magnifying glass.</li>
                     </ul><br />
 
-                    <h3>Date</h3>
+                    <h3>jsDate</h3><a name="jsDate"></a>
                     <pre class="prettyprint inline">Lava::jsDate(integers $year, $month, $day, $hour, $minute, $second, $millisecond);</pre>
                     <ul class="arrows padleft">
                         <li><strong>year</strong><em>integer</em>Year.</li>
@@ -287,9 +362,7 @@ title: LavaCharts by kevinkhill
 <!--API-->
     <div class="section s5">
             <div class="inner left">
-                <h1 class="heading">Chaining</h1>
-
-                <h1 class="heading">Method Chaining</h1>
+                <h1 class="heading">Method Chaining</h1><a nam="chaining"></a>
 
                 <h2>PHP 5.3+ allows us to chain almost all aspects of LavaCharts</h2>
 

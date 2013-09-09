@@ -11,7 +11,7 @@ do
     FN="${FILENAME%.*}"
 
     echo "Processing $FILE"
-        /usr/bin/java -jar yuicompressor-2.4.8.jar --charset utf-8 --type css "../public/css/$FN.css" -o "../public/builds/css/$FN.min.css"
+        java -jar yuicompressor-2.4.8.jar --charset utf-8 --type css "../public/css/$FN.css" -o "../public/builds/css/$FN.min.css"
     echo "                                   ...Done"
 done
 
@@ -26,7 +26,7 @@ do
     FN="${FILENAME%.*}"
 
     echo "Processing $FILE"
-        /usr/bin/java -jar yuicompressor-2.4.8.jar --charset utf-8 --type js --nomunge "../public/js/$FN.js" -o "../public/builds/js/$FN.min.js"
+        java -jar yuicompressor-2.4.8.jar --charset utf-8 --type js --nomunge "../public/js/$FN.js" -o "../public/builds/js/$FN.min.js"
     echo "                                   ...Done"
 done
 
