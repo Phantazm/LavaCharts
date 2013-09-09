@@ -15,7 +15,7 @@ title: LavaCharts by kevinkhill
                 <a href="#" id="s2" class="subNavBtn">Charts</a>
                 <a href="#" id="s3" class="subNavBtn">Chart Config</a>
                 <a href="#" id="s4" class="subNavBtn">Config Objs</a>
-                <a href="#" id="s5" class="subNavBtn end">Extras</a>
+                <a href="#" id="s5" class="subNavBtn end">Chaining</a>
             </div>
         </div>
 
@@ -49,33 +49,39 @@ title: LavaCharts by kevinkhill
 
 <!--Intro-->
     <div class="section s1">
-            <div class="inner left">
+            <div class="inner left"><a name="dataTable"></a>
                 <h1 class="heading">DataTables</h1>
 
                 <h2>The heart of the Chart, containing all of the data to display on the screen.</h2>
 
+                <pre class="prettyprint inline">Lava::DataTable( string $label = '' )</pre>
+
                 <h3>Methods</h3>
-                <pre class="prettyprint inline">Lava::DataTable(string $label);</pre>
-                <ul class="arrows">
-                    <li>
-                        <p>Assigns a label for the DataTable.</p>
-                        <p>Remember this label, for assigning the same label to the Chart will automatically link the two.</p>
-                        <pre class="prettyprint inline">__constructor(string $label)</pre>
-                    </li>
-                    <li>
-                        <p>Add columns to the DataTable.</p>
-                        <p>The first argument is the type of data that the column will represent. Valid values include:<br />
-                        'string', 'number', 'boolean', 'date', 'datetime', 'timeofday'</p>
-                        <p>The second and third are optional, defining a label and ID for the column.</p>
-                        <pre class="prettyprint inline">addColumn(string $type, string $opt_label = '', string $opt_id = '')</pre>
-                    </li>
-                    <li>
-                        <p>Add a row to the DataTable</p>
-                        <p>Pass an array of data points, with equal number of items to number of columns added.<br />
-                        The order of data corresponds to the order in which the columns were added and count($cellArray) must == num of columns</p>
-                        <pre class="prettyprint inline">addRow(array $opt_cellArray = NULL)</pre>
-                    </li>
-                </ul>
+                <pre class="prettyprint inline">__constructor(string $label)</pre>
+                <p>Creates new DataTable object, and optionally stores in memory with label if assigned.</p>
+                <ul class="arrows padleft">
+                    <li><strong>label</strong><em>string</em>Assigns label to DataTable stored in the Lava Class.</li>
+                    <li><strong>label</strong><em>''</em>With no parameter, a DataTable is returned and not stored in the Lava Class</li>
+                </ul><br />
+
+                <pre class="prettyprint inline">addColumn( string $type, string $opt_label = '', string $opt_id = '')</pre>
+                <p>Add columns to the DataTable.</p>
+                <ul class="arrows padleft">
+                    <li><strong>type</strong><em>string</em>Type of data that the column will represent.<br />
+                        Valid values include: 'string', 'number', 'boolean', 'date', 'datetime', 'timeofday'.</li>
+                    <li><strong>opt_label</strong><em>string</em>Column label (optional).</li>
+                    <li><strong>opt_id</strong><em>string</em>Column ID (optional).</li>
+                </ul><br />
+
+
+                <pre class="prettyprint inline">addRow(array $opt_cellArray = NULL)</pre>
+                <p>Add a row to the DataTable</p>
+                <ul class="arrows padleft">
+                    <li><strong>opt_cellArray</strong><em>array</em>Array of data points, with equal number of items to number of columns.</li>
+                    <li>The order of data corresponds to the order in which the columns were added</li>
+                    <li>Number of items in row, must equal number of columns. EX: count($opt_cellArray) == count(columns).</li>
+                    <li>Additionaly, if called with no parameter, then a NULL value will be added to the DataTable, skipping a row.</li>
+                </ul><br />
             </div>
     </div>
 <!--/Intro-->
@@ -97,71 +103,9 @@ title: LavaCharts by kevinkhill
                 <br/>
                 <h2>Chart Methods:</h2>
                 <ul class="arrows padleft">
-                    <li>The chart methods always return themselves, except for "outputInto()", so options are chainable.</li>
+                    <li>The chart methods always return themselves, so options are <a href="#chaining">chainable</a>.</li>
                     <li>The Charts all extend a parent class "Chart" to extend common options to all Chart classes.</li>
                 </ul>
-
-
-
-                <pre class="prettyprint inline">chartArea</pre>
-                <ul class="arrows padleft">
-                    <li><strong>chartArea</strong><em></em></li>
-                </ul><br />
-
-                <pre class="prettyprint inline">colors</pre>
-                <ul class="arrows padleft">
-                    <li><strong>colors</strong><em></em></li>
-                </ul><br />
-<!--
-                <pre class="prettyprint inline">events</pre>
-                <ul class="arrows padleft">
-                    <li><strong>events</strong><em></em></li>
-                </ul><br />-->
-
-                <pre class="prettyprint inline">fontSize( integer $fontSize )</pre>
-                <ul class="arrows padleft">
-                    <li><strong>fontSize</strong><em>integer</em>Sets the global font size for all text in the chart.</li>
-                </ul><br />
-
-                <pre class="prettyprint inline">fontName</pre>
-                <ul class="arrows padleft">
-                    <li><strong>fontName</strong><em></em></li>
-                </ul><br />
-
-                <pre class="prettyprint inline">height</pre>
-                <ul class="arrows padleft">
-                    <li><strong>height</strong><em></em></li>
-                </ul><br />
-
-                <pre class="prettyprint inline">legend( legend $legend )</pre>
-                <ul class="arrows padleft">
-                    <li><strong>legend</strong><em>object (<a href="#legend">legend</a>)</em></li>
-                </ul><br />
-
-                <pre class="prettyprint inline">title</pre>
-                <ul class="arrows padleft">
-                    <li><strong>title</strong><em></em></li>
-                </ul><br />
-
-                <pre class="prettyprint inline">titlePosition</pre>
-                <ul class="arrows padleft">
-                    <li><strong>titlePosition</strong><em></em></li>
-                </ul><br />
-
-                <pre class="prettyprint inline">titleTextStyle</pre>
-                <ul class="arrows padleft">
-                    <li><strong>titleTextStyle</strong><em>object (<a href="#textStyle">textStyle</a>)</em></li>
-                </ul><br />
-
-                <pre class="prettyprint inline">tooltip</pre>
-                <ul class="arrows padleft">
-                    <li><strong>tooltip</strong><em></em></li>
-                </ul><br />
-
-                <pre class="prettyprint inline">width()</pre>
-                <ul class="arrows padleft">
-                    <li><strong></strong><em></em></li>
-                </ul><br />
             </div>
     </div>
 <!--/Installing-->
@@ -174,13 +118,14 @@ title: LavaCharts by kevinkhill
 
                 <h2>Setting up the options for the charts:</h2>
                 <ul class="arrows padleft">
-                    <li>This is the list of xxxx All charts have common configuration options, along with chart specific options</li>
-                    <li>Options can be set be passing an associative array to the setConfig() method</li>
-                    <li>OR options can be set by using/chaining corresponding option methods</li>
+                    <li>This is the list of options that all charts have in common, since they extend from the Chart class.</li>
+                    <li>Options can be set by using the method names below as keys in an associative array, then passed into the setConfig() method.</li>
+                    <li><strong>OR </strong>options can be set by using/<a href="#chaining">chaining</a> the methods shown below.</li>
+                    <li>The outputInto() method is an exception, and cannot be chained, since it returns the javascript blocks for inserting into views.</li>
                 </ul><br />
 
                 <h3>Parent Chart</h3>
-                <pre class="prettyprint inline">setConfig( array $options = array() )</pre>
+                <pre class="prettyprint inline">setConfig( array $option )</pre>
                 <ul class="arrows padleft">
                     <li><strong>options</strong><em>array</em>Sets configuration options from array of values.</li>
                 </ul><br />
@@ -191,28 +136,49 @@ title: LavaCharts by kevinkhill
                     <li>This method will output the javascript blocks into the page, the chart is rendered via javascript into $elementID</li>
                 </ul><br />
 
-                <pre class="prettyprint inline">backgroundColor</pre>
+                <pre class="prettyprint inline">dataTable( DataTable $dataTable | string $label )</pre>
+                <p>If the DataTable was created with a label that doesn't match the Chart label, then pass the label to this function.<br/>
+                    Otherwish, if the DataTable was created with no title, then pass a DataTable object to this function to assign to the chart.</p>
                 <ul class="arrows padleft">
-                    <li><strong>backgroundColor</strong><em></em></li>
+                    <li><strong>dataTable</strong><em>object (<a href="#dataTable">DataTable</a>)</em>Sets the DataTable to use for the chart.</li>
+                    <li><strong>label</strong><em>string</em>Sets the labeled DataTable to use for the chart.</li>
                 </ul><br />
 
-                <h3>Chart Area</h3>
-                <p>Defines where the chart itself is drawn, excluding axis and legends.</p>
+                <pre class="prettyprint inline">backgroundColor</pre>
+                <ul class="arrows padleft">
+                    <li><strong>stroke</strong><em>string</em>The color of the chart border, as an HTML color string.</li>
+                    <li><strong>strokeWidth</strong><em>int</em>The border width, in pixels.</li>
+                    <li><strong>fill</strong><em>string</em>The chart fill color, as an HTML color string.</li>
+                </ul><br />
+
                 <pre class="prettyprint inline">chartArea( chartArea $chartArea )</pre>
+                <p>Defines where the chart itself is drawn, excluding axis and legends.</p>
                 <ul class="arrows padleft">
                     <li><strong>param</strong><em>object (<a href="#chartArea">chartArea</a>)</em>An object with members to configure the placement and size of the chart area.</li>
                 </ul><br />
 
                 <pre class="prettyprint inline">colors( array $colorArray )</pre>
+                <p>The colors to use for the chart elements.</p>
                 <ul class="arrows padleft">
                     <li><strong>param</strong><em>array</em>An array of strings, where each element is an HTML color string.</li>
                 </ul><br />
 
-                <h3>Font Size</h3>
-                <p>The default font size, in pixels, of all text in the chart. You can override this using properties for specific chart elements.</p>
                 <pre class="prettyprint inline">fontSize( integer $fontSize )</pre>
+                <p>The default font size, in pixels, of all text in the chart. You can override this using properties for specific chart elements.</p>
                 <ul class="arrows padleft">
-                    <li><strong>param</strong><em>integer</em></li>
+                    <li><strong>fontSize</strong><em>integer</em>Number of pixels</li>
+                </ul><br />
+
+                <pre class="prettyprint inline">fontName( string $fontName )</pre>
+                <p>The default font face for all text in the chart. You can override this using properties for specific chart elements.</p>
+                <ul class="arrows padleft">
+                    <li><strong>fontName</strong><em>string</em>Valid font name.</li>
+                </ul><br />
+
+                <pre class="prettyprint inline">height( integer $height )</pre>
+                <p>Height of the chart, in pixels.</p>
+                <ul class="arrows padleft">
+                    <li><strong>height</strong><em>integer</em>Number of pixels</li>
                 </ul><br />
 
             </div>
@@ -228,11 +194,11 @@ title: LavaCharts by kevinkhill
                     <h2>All of the configuration objects can be created by one of two ways:</h2>
                     <ul class="arrows">
                         <li>Passing an associative array into the constructor.</li>
-                        <li>Using the configuration options as methods of the object. (<a href="#chaining">Chainable</a>, see Chaining section)</li>
+                        <li>Using the configuration options as methods of the object. (Chainable, see <a href="#chaining">Chaining</a> section)</li>
                         <li>The only exception is the jsDate object, it mimics the javascript date signature.</li>
                     </ul><br />
 
-                    <h3>Background Color</h3>
+                    <h3>Background Color</h3><a name="backgroundColor"></a>
                     <pre class="prettyprint inline">Lava::backgroundColor(array $config);</pre>
                     <ul class="arrows padleft">
                         <li><strong>stroke</strong><em>string</em>The color of the chart border, as an HTML color string.</li>
@@ -268,7 +234,7 @@ title: LavaCharts by kevinkhill
                     <h3>Tooltip</h3><a name="tooltip"></a>
                     <pre class="prettyprint inline">Lava::tooltip(array $config);</pre>
                     <ul class="arrows padleft">
-                        <li><strong>showColorCode</strong><em>boolean</em></li>
+                        <li><strong>showColorCode</strong><em>boolean</em>Show color code for the tooltip.</li>
                         <li><strong>textStyle</strong><em>object (<a href="#textStyle">textStyle</a>)</em>Tooltip text style.</li>
                         <li><strong>trigger</strong><em>string</em>Trigger action of the tooltip.</li>
                     </ul><br />
@@ -361,8 +327,8 @@ title: LavaCharts by kevinkhill
 
 <!--API-->
     <div class="section s5">
-            <div class="inner left">
-                <h1 class="heading">Method Chaining</h1><a nam="chaining"></a>
+            <div class="inner left"><a name="chaining"></a>
+                <h1 class="heading">Method Chaining</h1>
 
                 <h2>PHP 5.3+ allows us to chain almost all aspects of LavaCharts</h2>
 
@@ -393,7 +359,10 @@ $chartData = Lava::DataTable('Times')
 
                 <h3>Charts</h3>
                 <pre class="prettyprint inline">
-Lava::LineChart('Times')->setConfig(array('title' => 'Times for Deliveries'));
+Lava::LineChart('Times')->title('Times for Deliveries')
+                        ->fontSize(20)
+                        ->fontName('Impact')
+                        ->colors(array('blue', 'green', 'red'))
                 </pre>
             </div>
     </div>

@@ -55,6 +55,10 @@ ul.arrows li em a:visited {
     color: #acacac;
 }
 
+ul.arrows li a:visited {
+    color: #acacac;
+}
+
 ul.arrows li strong {
     color: #62AEFF;
 }

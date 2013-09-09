@@ -17,7 +17,7 @@
         <script type="text/javascript">
             $(function() {
                 $('.subMenu').smint({
-                    'scrollSpeed' : 1000
+                    'scrollSpeed' : 800
                 });
 
                 $(window).on('scroll', function() {
@@ -29,7 +29,7 @@
 
                 function scrollToAnchor(aid){
                     var aTag = $("a[name='"+ aid +"']");
-                    $('html,body').animate({scrollTop: aTag.offset().top -120},'slow');
+                    $('html,body').animate({scrollTop: aTag.offset().top -120});
                 }
 
                 $('a[href^="#"]').each(function(){
