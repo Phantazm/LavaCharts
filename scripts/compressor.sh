@@ -47,7 +47,7 @@ then
 fi
 
 #for FILE in `ls -A "./public/builds/css/"`
-CSSFILES=( 'site' 'home' 'smint' 'examples' 'prettify.dark' )
+CSSFILES=( 'site' 'home' 'smint' 'examples' 'prettify.dark' 'drawer' )
 for FILE in "${CSSFILES[@]}"
 do
     cat "../public/builds/css/$FILE.min.css" >> $MASTERCSS
@@ -69,9 +69,11 @@ then
     rm $MASTERJS
 fi
 
-for FILE in `ls -A "../public/builds/js/"`
+#for FILE in `ls -A "../public/builds/js/"`
+JSFILES=( 'jquery' 'jquery.smint' 'prettify.run' 'drawer' )
+for FILE in "${JSFILES[@]}"
 do
-    cat "../public/builds/js/$FILE" >> "../public/master.min.js"
+    cat "../public/builds/js/$FILE.min.js" >> $MASTERJS
     printf "\n\n" >> $MASTERJS
 done
 echo "                                   ...Done"
