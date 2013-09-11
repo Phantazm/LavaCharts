@@ -12,7 +12,7 @@ To your project's main composer.json file, add this the the requirements
   "khill\lavacharts" : "dev-master"
   ```
 
-Register the LavaChart Service Provider by adding this line the providers array in "app/config/app.php"
+Register the LavaChart Service Provider by adding this line to the providers array in ```app/config/app.php```
 
   ```
   "Khill\Lavacharts\LavachartsServiceProvider"
