@@ -1,3 +1,3 @@
 baseurl: /LavaCharts
 
-exclude: ['vendor','src','tests','scripts','phpunit.xml','composer.json','README.md','nbproject','public/css','public/js','public/builds']
+exclude: ['src','scripts','nbproject','public/css','public/js','public/builds']
