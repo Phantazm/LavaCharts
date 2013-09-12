@@ -1,0 +1,10 @@
+# whitelist
+branches:
+    only:
+        - master
+
+# blacklist
+branches:
+  except:
+        - ghp-staging
+        - gh-pages
