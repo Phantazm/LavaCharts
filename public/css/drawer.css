@@ -9,8 +9,25 @@
     border-bottom: 2px solid #62aeff;
 }
 
+#slideout .toc-list {
+    height: 330px;
+    float:left;
+}
+
+#slideout h1 {
+    font-size:16pt;
+    color: #FFF;
+}
+
+#slideout li {
+    display: list-item;
+    color: #FFF;
+}
+
 #clickme {
     background-color:#403f3f;
+    background-image: url('/public/images/toc.png');
+    background-position: 0 -3px;
     position: relative;
     top:350px;
     left:-1px;
