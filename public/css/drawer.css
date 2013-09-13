@@ -12,6 +12,22 @@
 #slideout .toc-list {
     height: 330px;
     float:left;
+    margin-right: 25px;
+    padding: 40px;
+    text-align: left;
+}
+
+#slideout .toc-list h1 {
+    line-height: 1pt;;
+}
+
+#slideout .toc-list ul {
+    padding-left: 0px;
+    margin-left: 20px;
+}
+
+#slideout .toc-list a {
+    color:#93c763;
 }
 
 #slideout h1 {
