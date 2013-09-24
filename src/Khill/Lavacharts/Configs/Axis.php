@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * Axis Properties Parent Object
  *
@@ -12,11 +15,10 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Helpers\Helpers;
 
-class Axis extends configOptions
-{
+class Axis extends configOptions {
+
     /**
      * The baseline for the axis.
      *
@@ -129,7 +131,6 @@ class Axis extends configOptions
      */
     public $options = array();
 
-
     /**
      * Builds the configuration when passed an array of options.
      *
@@ -141,8 +142,7 @@ class Axis extends configOptions
      * various configuration options.
      * @return \Axis
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         $this->options = array_merge($this->options, array(
             'baseline',
             'baselineColor',
@@ -176,14 +176,11 @@ class Axis extends configOptions
      * @param mixed Must match type defined for the column, [ number | jsDate ].
      * @return \Axis
      */
-    public function baseline($baseline)
-    {
-        if(Helpers::is_jsDate($baseline))
-        {
+    public function baseline($baseline) {
+        if (Helpers::is_jsDate($baseline)) {
             $this->baseline = $baseline->toString();
         } else {
-            if(is_int($baseline))
-            {
+            if (is_int($baseline)) {
                 $this->baseline = $baseline;
             } else {
                 $this->type_error(__FUNCTION__, 'int | jsDate', '; int if column is "number", jsDate if column is "date"');
@@ -203,10 +200,8 @@ class Axis extends configOptions
      * @param string Valid HTML color.
      * @return \Axis
      */
-    public function baselineColor($color)
-    {
-        if(is_string($color))
-        {
+    public function baselineColor($color) {
+        if (is_string($color)) {
             $this->baselineColor = $color;
         } else {
             $this->type_error(__FUNCTION__, 'string', 'representing a valid HTML color');
@@ -223,10 +218,8 @@ class Axis extends configOptions
      * @param int $direction
      * @return \Axis
      */
-    public function direction($direction)
-    {
-        if(is_int($direction) && ($direction == 1 || $direction == -1))
-        {
+    public function direction($direction) {
+        if (is_int($direction) && ($direction == 1 || $direction == -1)) {
             $this->direction = $direction;
         } else {
             $this->type_error(__FUNCTION__, 'int', '1 || -1');
@@ -249,10 +242,8 @@ class Axis extends configOptions
      * @param string $format format string for numeric or date axis labels.
      * @return \Axis
      */
-    public function format($format)
-    {
-        if(is_string($format))
-        {
+    public function format($format) {
+        if (is_string($format)) {
             $this->format = $format;
         } else {
             $this->type_error(__FUNCTION__, 'string');
@@ -275,16 +266,12 @@ class Axis extends configOptions
      * @param array $gridlines
      * @return \Axis
      */
-    public function gridlines($gridlines)
-    {
+    public function gridlines($gridlines) {
         $tmp = array();
 
-        if(is_array($gridlines))
-        {
-            if(array_key_exists('count', $gridlines))
-            {
-                if($gridlines['count'] >= 2 || $gridlines['count'] == -1)
-                {
+        if (is_array($gridlines)) {
+            if (array_key_exists('count', $gridlines)) {
+                if ($gridlines['count'] >= 2 || $gridlines['count'] == -1) {
                     $tmp['count'] = $gridlines['count'];
                 } else {
                     $tmp['count'] = 5;
@@ -293,8 +280,7 @@ class Axis extends configOptions
                 $tmp['count'] = 5;
             }
 
-            if(array_key_exists('color', $gridlines))
-            {
+            if (array_key_exists('color', $gridlines)) {
                 $tmp['color'] = $gridlines['color'];
             } else {
                 $tmp['color'] = '#CCC';
@@ -320,23 +306,20 @@ class Axis extends configOptions
      * @param array $minorGridlines
      * @return \Axis
      */
-    public function minorGridlines($minorGridlines)
-    {
-       $tmp = array();
+    public function minorGridlines($minorGridlines) {
+        $tmp = array();
 
-        if(is_array($minorGridlines))
-        {
-            if(array_key_exists('count', $minorGridlines) &&
+        if (is_array($minorGridlines)) {
+            if (array_key_exists('count', $minorGridlines) &&
                     $minorGridlines['count'] >= 2 ||
                     $minorGridlines['count'] == -1
             ) {
                 $tmp['count'] = $minorGridlines['count'];
             } else {
-                $this->type_error(__FUNCTION__.'[count]',  'int', '>= 2 or -1 for auto');
+                $this->type_error(__FUNCTION__ . '[count]', 'int', '>= 2 or -1 for auto');
             }
 
-            if(array_key_exists('color', $minorGridlines))
-            {
+            if (array_key_exists('color', $minorGridlines)) {
                 $tmp['color'] = $minorGridlines['color'];
             }
 
@@ -357,10 +340,8 @@ class Axis extends configOptions
      * @param boolean $log
      * @return \Axis
      */
-    public function logScale($log)
-    {
-        if(is_bool($log))
-        {
+    public function logScale($log) {
+        if (is_bool($log)) {
             $this->logScale = $log;
         } else {
             $this->type_error(__FUNCTION__, 'boolean');
@@ -376,19 +357,17 @@ class Axis extends configOptions
      * @param string Setting the position of the text.
      * @return \Axis
      */
-    public function textPosition($position)
-    {
+    public function textPosition($position) {
         $values = array(
             'out',
             'in',
             'none'
         );
 
-        if(in_array($position, $values))
-        {
+        if (in_array($position, $values)) {
             $this->textPosition = $position;
         } else {
-            $this->type_error(__FUNCTION__, 'string', 'with a value of '.Helpers::array_string($values));
+            $this->type_error(__FUNCTION__, 'string', 'with a value of ' . Helpers::array_string($values));
         }
 
         return $this;
@@ -400,10 +379,8 @@ class Axis extends configOptions
      * @param textStyle $textStyle
      * @return \Axis
      */
-    public function textStyle($textStyle)
-    {
-        if(Helpers::is_textStyle($textStyle))
-        {
+    public function textStyle($textStyle) {
+        if (Helpers::is_textStyle($textStyle)) {
             $this->textStyle = $textStyle->getValues();
         } else {
             $this->type_error(__FUNCTION__, 'object', 'class textStyle');
@@ -418,10 +395,8 @@ class Axis extends configOptions
      * @param string $title
      * @return \Axis
      */
-    public function title($title)
-    {
-        if(is_string($title))
-        {
+    public function title($title) {
+        if (is_string($title)) {
             $this->title = $title;
         } else {
             $this->type_error(__FUNCTION__, 'string');
@@ -436,10 +411,8 @@ class Axis extends configOptions
      * @param textStyle $titleTextStyle
      * @return \Axis
      */
-    public function titleTextStyle($titleTextStyle)
-    {
-        if(Helpers::is_textStyle($titleTextStyle))
-        {
+    public function titleTextStyle($titleTextStyle) {
+        if (Helpers::is_textStyle($titleTextStyle)) {
             $this->titleTextStyle = $titleTextStyle->getValues();
         } else {
             $this->type_error(__FUNCTION__, 'object', 'class textStyle');
@@ -460,10 +433,8 @@ class Axis extends configOptions
      * @param int $alternation
      * @return \Axis
      */
-    public function maxAlternation($alternation)
-    {
-        if(is_int($alternation))
-        {
+    public function maxAlternation($alternation) {
+        if (is_int($alternation)) {
             $this->maxAlternation = $alternation;
         } else {
             $this->type_error(__FUNCTION__, 'int');
@@ -482,10 +453,8 @@ class Axis extends configOptions
      * @param int $maxTextLines
      * @return \Axis
      */
-    public function maxTextLines($maxTextLines)
-    {
-        if(is_int($maxTextLines))
-        {
+    public function maxTextLines($maxTextLines) {
+        if (is_int($maxTextLines)) {
             $this->maxTextLines = $maxTextLines;
         } else {
             $this->type_error(__FUNCTION__, 'int');
@@ -506,14 +475,11 @@ class Axis extends configOptions
      * @param int $minTextSpacing
      * @return \Axis
      */
-    public function minTextSpacing($minTextSpacing)
-    {
-        if(is_int($minTextSpacing))
-        {
+    public function minTextSpacing($minTextSpacing) {
+        if (is_int($minTextSpacing)) {
             $this->minTextSpacing = $minTextSpacing;
         } else {
-            if(isset($this->textStyle['fontSize']))
-            {
+            if (isset($this->textStyle['fontSize'])) {
                 $this->minTextSpacing = $this->textStyle['fontSize'];
             } else {
                 $this->type_error(__FUNCTION__, 'int');
@@ -533,10 +499,8 @@ class Axis extends configOptions
      * @param int $showTextEvery
      * @return \Axis
      */
-    public function showTextEvery($showTextEvery)
-    {
-        if(is_int($showTextEvery))
-        {
+    public function showTextEvery($showTextEvery) {
+        if (is_int($showTextEvery)) {
             $this->showTextEvery = $showTextEvery;
         } else {
             $this->type_error(__FUNCTION__, 'int');
@@ -555,10 +519,8 @@ class Axis extends configOptions
      * @param int $max
      * @return \Axis
      */
-    public function maxValue($max)
-    {
-        if(is_int($max))
-        {
+    public function maxValue($max) {
+        if (is_int($max)) {
             $this->maxValue = $max;
         } else {
             $this->type_error(__FUNCTION__, 'int');
@@ -577,13 +539,11 @@ class Axis extends configOptions
      * @param int $min
      * @return \Axis
      */
-    public function minValue($min)
-    {
-        if(is_int($min))
-        {
+    public function minValue($min) {
+        if (is_int($min)) {
             $this->minValue = $min;
         } else {
-           $this->type_error(__FUNCTION__, 'int');
+            $this->type_error(__FUNCTION__, 'int');
         }
 
         return $this;
@@ -606,20 +566,17 @@ class Axis extends configOptions
      * @param string $viewMode
      * @return \Axis
      */
-    public function viewWindowMode($viewMode)
-    {
+    public function viewWindowMode($viewMode) {
         $values = array(
             'pretty',
             'maximized',
             'explicit',
         );
 
-        if(in_array($viewMode, $values))
-        {
+        if (in_array($viewMode, $values)) {
             $this->viewWindowMode = $viewMode;
         } else {
-            if($this->viewWindow == null)
-            {
+            if ($this->viewWindow == null) {
                 $this->viewWindowMode = 'pretty';
             } else {
                 $this->viewWindowMode = 'explicit';
@@ -652,14 +609,11 @@ class Axis extends configOptions
      * @param array $viewWindow
      * @return \Axis
      */
-    public function viewWindow($viewWindow)
-    {
+    public function viewWindow($viewWindow) {
         $tmp = array();
 
-        if(is_array($viewWindow))
-        {
-            if(array_key_exists('min', $viewWindow) && array_key_exists('max', $viewWindow))
-            {
+        if (is_array($viewWindow)) {
+            if (array_key_exists('min', $viewWindow) && array_key_exists('max', $viewWindow)) {
                 $tmp['viewWindowMin'] = $viewWindow['min'];
                 $tmp['viewWindowMax'] = $viewWindow['max'];
 
