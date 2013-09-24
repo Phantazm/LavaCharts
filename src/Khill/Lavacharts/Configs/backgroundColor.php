@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * backgroundColor Object
  *
@@ -12,9 +15,8 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
+class backgroundColor extends configOptions {
 
-class backgroundColor extends configOptions
-{
     /**
      * The color of the chart border, as an HTML color string.
      *
@@ -35,7 +37,6 @@ class backgroundColor extends configOptions
      * @var string Valid HTML color.
      */
     public $fill = null;
-
 
     /**
      * Builds the backgroundColor object with specified options
@@ -63,10 +64,8 @@ class backgroundColor extends configOptions
      * @param string Valid HTML color string.
      * @return \backgroundColor
      */
-    public function stroke($stroke)
-    {
-        if(is_string($stroke))
-        {
+    public function stroke($stroke) {
+        if (is_string($stroke)) {
             $this->stroke = $stroke;
         } else {
             $this->type_error(__FUNCTION__, 'string');
@@ -81,10 +80,8 @@ class backgroundColor extends configOptions
      * @param int Border width, in pixels.
      * @return \backgroundColor
      */
-    public function strokeWidth($strokeWidth)
-    {
-        if(is_int($strokeWidth))
-        {
+    public function strokeWidth($strokeWidth) {
+        if (is_int($strokeWidth)) {
             $this->strokeWidth = $strokeWidth;
         } else {
             $this->type_error(__FUNCTION__, 'int');
@@ -99,10 +96,8 @@ class backgroundColor extends configOptions
      * @param string Valid HTML color string.
      * @return \backgroundColor
      */
-    public function fill($fill)
-    {
-        if(is_string($fill))
-        {
+    public function fill($fill) {
+        if (is_string($fill)) {
             $this->fill = $fill;
         } else {
             $this->type_error(__FUNCTION__, 'string');

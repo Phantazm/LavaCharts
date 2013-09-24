@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * DataTable Object
  *
@@ -20,11 +23,10 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Helpers\Helpers;
 
-class DataTable
-{
+class DataTable {
+
     /**
      * Holds the information defining the columns.
      *
@@ -40,7 +42,6 @@ class DataTable
     public $rows = array();
 
     //@TODO: private $_row_count;
-
 
     /**
      * Adds a column to the DataTable
@@ -63,8 +64,7 @@ class DataTable
      * @param string An ID for the column. (Optinal)
      * @return \DataTable
      */
-    public function addColumn($typeOrDescriptionArray, $opt_label = '', $opt_id = '')
-    {
+    public function addColumn($typeOrDescriptionArray, $opt_label = '', $opt_id = '') {
         $types = array(
             'string',
             'number',
@@ -82,33 +82,26 @@ class DataTable
             'pattern'
         );
 
-        switch(gettype($typeOrDescriptionArray))
-        {
+        switch (gettype($typeOrDescriptionArray)) {
             case 'array':
-                foreach($typeOrDescriptionArray as $key => $value)
-                {
-                    if(array_key_exists('type', $typeOrDescriptionArray))
-                    {
-                        if(in_array($typeOrDescriptionArray['type'], $types))
-                        {
+                foreach ($typeOrDescriptionArray as $key => $value) {
+                    if (array_key_exists('type', $typeOrDescriptionArray)) {
+                        if (in_array($typeOrDescriptionArray['type'], $types)) {
                             $descArray['type'] = $typeOrDescriptionArray['type'];
 
-                            if(in_array($key, $descriptions))
-                            {
-                                if($key != 'type')
-                                {
-                                    if(is_string($value))
-                                    {
+                            if (in_array($key, $descriptions)) {
+                                if ($key != 'type') {
+                                    if (is_string($value)) {
                                         $descArray[$key] = $value;
                                     } else {
                                         $this->error('Invalid description array value, must be type (string).');
                                     }
                                 }
                             } else {
-                                $this->error('Invalid description array key value, must be type (string) with any key value '.Helpers::array_string($descriptions));
+                                $this->error('Invalid description array key value, must be type (string) with any key value ' . Helpers::array_string($descriptions));
                             }
                         } else {
-                            $this->error('Invalid type, must be type (string) with the value '.Helpers::array_string($types));
+                            $this->error('Invalid type, must be type (string) with the value ' . Helpers::array_string($types));
                         }
                     } else {
                         $this->error('Invalid description array, must contain (array) with at least one key type (string) value [ type ]');
@@ -116,36 +109,33 @@ class DataTable
                 }
 
                 $this->cols[] = $descArray;
-            break;
+                break;
 
             case 'string':
-                if(in_array($typeOrDescriptionArray, $types))
-                {
+                if (in_array($typeOrDescriptionArray, $types)) {
                     $descArray['type'] = $typeOrDescriptionArray;
 
-                    if(is_string($opt_label))
-                    {
+                    if (is_string($opt_label)) {
                         $descArray['label'] = $opt_label;
                     } else {
                         $this->error('Invalid opt_label, must be type (string).');
                     }
 
-                    if(is_string($opt_id))
-                    {
+                    if (is_string($opt_id)) {
                         $descArray['id'] = $opt_id;
                     } else {
                         $this->error('Invalid opt_id, must be type (string).');
                     }
                 } else {
-                    $this->error('Invalid type, must be type (string) with the value '.Helpers::array_string($types));
+                    $this->error('Invalid type, must be type (string) with the value ' . Helpers::array_string($types));
                 }
 
                 $this->cols[] = $descArray;
-            break;
+                break;
 
             default:
                 $this->error('Invalid type or description array, must be type (string) or (array).');
-            break;
+                break;
         }
 
         return $this;
@@ -181,30 +171,23 @@ class DataTable
      * @param mixed $opt_cell Array of values or DataCells.
      * @return \DataTable
      */
-    public function addRow($opt_cellArray = null)
-    {
+    public function addRow($opt_cellArray = null) {
         $props = array(
             'v',
             'f',
             'p'
         );
 
-        if(is_null($opt_cellArray))
-        {
-            for($a = 0; $a < count($this->cols); $a++)
-            {
+        if (is_null($opt_cellArray)) {
+            for ($a = 0; $a < count($this->cols); $a++) {
                 $tmp[] = array('v' => null);
             }
             $this->rows[] = array('c' => $tmp);
         } else {
-            if(is_array($opt_cellArray))
-            {
-                if(Helpers::array_is_multi($opt_cellArray))
-                {
-                    foreach($opt_cellArray as $prop => $value)
-                    {
-                        if(in_array($prop, $props))
-                        {
+            if (is_array($opt_cellArray)) {
+                if (Helpers::array_is_multi($opt_cellArray)) {
+                    foreach ($opt_cellArray as $prop => $value) {
+                        if (in_array($prop, $props)) {
                             $rowVals[] = array($prop => $value);
                         } else {
                             $this->error('Invalid row property, array with keys type (string) with values [ v | f | p ] ');
@@ -213,14 +196,10 @@ class DataTable
 
                     $this->rows[] = array('c' => $rowVals);
                 } else {
-                    if(count($opt_cellArray) <= count($this->cols))
-                    {
-                        for($b = 0; $b < count($this->cols); $b++)
-                        {
-                            if(isset($opt_cellArray[$b]))
-                            {
-                                if(Helpers::is_jsDate($opt_cellArray[$b]))
-                                {
+                    if (count($opt_cellArray) <= count($this->cols)) {
+                        for ($b = 0; $b < count($this->cols); $b++) {
+                            if (isset($opt_cellArray[$b])) {
+                                if (Helpers::is_jsDate($opt_cellArray[$b])) {
                                     $rowVals[] = array('v' => $opt_cellArray[$b]->toString());
                                 } else {
                                     $rowVals[] = array('v' => $opt_cellArray[$b]);
@@ -232,7 +211,7 @@ class DataTable
                         $this->rows[] = array('c' => $rowVals);
                     } else {
                         $msg = 'Invalid number of cells, must be equal or less than number of columns. ';
-                        $msg .= '(cells '.count($opt_cellArray).' > cols '.count($this->cols).')';
+                        $msg .= '(cells ' . count($opt_cellArray) . ' > cols ' . count($this->cols) . ')';
                         $this->error($msg);
                     }
                 }
@@ -251,12 +230,9 @@ class DataTable
      * @param array Multi-dimensional array of rows.
      * @return \DataTable
      */
-    public function addRows($arrayOfRows)
-    {
-        if(Helpers::array_is_multi($arrayOfRows))
-        {
-            foreach($arrayOfRows as $row)
-            {
+    public function addRows($arrayOfRows) {
+        if (Helpers::array_is_multi($arrayOfRows)) {
+            foreach ($arrayOfRows as $row) {
                 $this->addRow($row);
             }
         } else {
@@ -265,204 +241,205 @@ class DataTable
 
         return $this;
     }
-/*
-    public function getColumnId($columnIndex)
-    {
 
-    }
+    /*
+      public function getColumnId($columnIndex)
+      {
 
-    public function getColumnLabel($columnIndex)
-    {
+      }
 
-    }
+      public function getColumnLabel($columnIndex)
+      {
 
-    public function getColumnPattern($columnIndex)
-    {
+      }
 
-    }
+      public function getColumnPattern($columnIndex)
+      {
 
-    public function getColumnProperty($columnIndex, $name)
-    {
+      }
 
-    }
+      public function getColumnProperty($columnIndex, $name)
+      {
 
-    public function getColumnRange($columnIndex)
-    {
+      }
 
-    }
+      public function getColumnRange($columnIndex)
+      {
 
-    public function getColumnRole($columnIndex)
-    {
+      }
 
-    }
+      public function getColumnRole($columnIndex)
+      {
 
-    public function getColumnType($columnIndex)
-    {
+      }
 
-    }
+      public function getColumnType($columnIndex)
+      {
 
-    public function getDistinctValues($columnIndex)
-    {
+      }
 
-    }
+      public function getDistinctValues($columnIndex)
+      {
 
-    public function getFilteredRows($filters)
-    {
+      }
 
-    }
+      public function getFilteredRows($filters)
+      {
 
-    public function getFormattedValue($rowIndex, $columnIndex)
-    {
+      }
 
-    }
+      public function getFormattedValue($rowIndex, $columnIndex)
+      {
 
-    public function getNumberOfColumns()
-    {
-        return count($this->cols);
-    }
+      }
 
-    public function getNumberOfRows()
-    {
-        return count($this->rows);
-    }
+      public function getNumberOfColumns()
+      {
+      return count($this->cols);
+      }
 
-    public function getProperties($rowIndex, $columnIndex)
-    {
+      public function getNumberOfRows()
+      {
+      return count($this->rows);
+      }
 
-    }
+      public function getProperties($rowIndex, $columnIndex)
+      {
 
-    public function getProperty($rowIndex, $columnIndex, $name)
-    {
+      }
 
-    }
+      public function getProperty($rowIndex, $columnIndex, $name)
+      {
 
-    public function getRowProperties($rowIndex)
-    {
+      }
 
-    }
+      public function getRowProperties($rowIndex)
+      {
 
-    public function getRowProperty($rowIndex, $name)
-    {
+      }
 
-    }
+      public function getRowProperty($rowIndex, $name)
+      {
 
-    public function getSortedRows($sortColumns)
-    {
+      }
 
-    }
+      public function getSortedRows($sortColumns)
+      {
 
-    public function getTableProperties()
-    {
+      }
 
-    }
+      public function getTableProperties()
+      {
 
-    public function getTableProperty($name)
-    {
+      }
 
-    }
+      public function getTableProperty($name)
+      {
 
-    public function getValue($rowIndex, $columnIndex)
-    {
+      }
 
-    }
+      public function getValue($rowIndex, $columnIndex)
+      {
 
-    public function insertColumn($columnIndex, $type, $label='', $id='')
-    {
+      }
 
-    }
+      public function insertColumn($columnIndex, $type, $label='', $id='')
+      {
 
-    public function insertRows($rowIndex, $numberOrArray)
-    {
+      }
 
-    }
+      public function insertRows($rowIndex, $numberOrArray)
+      {
 
-    public function removeColumn($columnIndex)
-    {
+      }
 
-    }
+      public function removeColumn($columnIndex)
+      {
 
-    public function removeColumns($columnIndex, $numberOfColumns)
-    {
+      }
 
-    }
+      public function removeColumns($columnIndex, $numberOfColumns)
+      {
 
-    public function removeRow($rowIndex)
-    {
+      }
 
-    }
+      public function removeRow($rowIndex)
+      {
 
-    public function removeRows($rowIndex, $numberOfRows)
-    {
+      }
 
-    }
+      public function removeRows($rowIndex, $numberOfRows)
+      {
 
-    public function setCell($rowIndex, $columnIndex, $value='', $formattedValue='', $properties='')
-    {
+      }
 
-    }
+      public function setCell($rowIndex, $columnIndex, $value='', $formattedValue='', $properties='')
+      {
 
-    public function setColumnLabel($columnIndex, $label)
-    {
+      }
 
-    }
+      public function setColumnLabel($columnIndex, $label)
+      {
 
-    public function setColumnProperty($columnIndex, $name, $value)
-    {
+      }
 
-    }
+      public function setColumnProperty($columnIndex, $name, $value)
+      {
 
-    public function setColumnProperties($columnIndex, $properties)
-    {
+      }
 
-    }
+      public function setColumnProperties($columnIndex, $properties)
+      {
 
-    public function setFormattedValue($rowIndex, $columnIndex, $formattedValue)
-    {
+      }
 
-    }
+      public function setFormattedValue($rowIndex, $columnIndex, $formattedValue)
+      {
 
-    public function setProperty($rowIndex, $columnIndex, $name, $value)
-    {
+      }
 
-    }
+      public function setProperty($rowIndex, $columnIndex, $name, $value)
+      {
 
-    public function setProperties($rowIndex, $columnIndex, $properties)
-    {
+      }
 
-    }
+      public function setProperties($rowIndex, $columnIndex, $properties)
+      {
 
-    public function setRowProperty($rowIndex, $name, $value)
-    {
+      }
 
-    }
+      public function setRowProperty($rowIndex, $name, $value)
+      {
 
-    public function setRowProperties($rowIndex, $properties)
-    {
+      }
 
-    }
+      public function setRowProperties($rowIndex, $properties)
+      {
 
-    public function setTableProperty($name, $value)
-    {
+      }
 
-    }
+      public function setTableProperty($name, $value)
+      {
 
-    public function setTableProperties($properties)
-    {
+      }
 
-    }
+      public function setTableProperties($properties)
+      {
 
-    public function setValue($rowIndex, $columnIndex, $value)
-    {
+      }
 
-    }
+      public function setValue($rowIndex, $columnIndex, $value)
+      {
 
-    public function sort($sortColumns)
-    {
+      }
 
-    }
-*/
-    public function toJSON()
-    {
+      public function sort($sortColumns)
+      {
+
+      }
+     */
+
+    public function toJSON() {
         return json_encode($this);
     }
 
@@ -471,8 +448,7 @@ class DataTable
      *
      * @param string $msg error message.
      */
-    private function error($msg)
-    {
+    private function error($msg) {
         Lavacharts::_set_error(get_class($this), $msg);
     }
 

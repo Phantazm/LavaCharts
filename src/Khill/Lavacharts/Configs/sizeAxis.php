@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * sizeAxis Object
  *
@@ -12,9 +15,8 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
+class sizeAxis extends configOptions {
 
-class sizeAxis extends configOptions
-{
     /**
      * Maximum radius of the largest possible bubble, in pixels.
      *
@@ -54,8 +56,7 @@ class sizeAxis extends configOptions
      * various configuration options.
      * @return \sizeAxis
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         $this->options = array(
             'maxSize',
             'maxValue',
@@ -72,10 +73,8 @@ class sizeAxis extends configOptions
      * @param int $maxSize
      * @return \sizeAxis
      */
-    function maxSize($maxSize)
-    {
-        if(is_numeric($maxSize))
-        {
+    function maxSize($maxSize) {
+        if (is_numeric($maxSize)) {
             $this->maxSize = $maxSize;
         } else {
             $this->type_error(__FUNCTION__, 'int | float');
@@ -91,10 +90,8 @@ class sizeAxis extends configOptions
      * @param int $maxValue
      * @return \sizeAxis
      */
-    function maxValue($maxValue)
-    {
-        if(is_numeric($maxValue))
-        {
+    function maxValue($maxValue) {
+        if (is_numeric($maxValue)) {
             $this->maxValue = $maxValue;
         } else {
             $this->type_error(__FUNCTION__, 'int | float');
@@ -109,10 +106,8 @@ class sizeAxis extends configOptions
      * @param int $minSize
      * @return \sizeAxis
      */
-    function minSize($minSize)
-    {
-        if(is_numeric($minSize))
-        {
+    function minSize($minSize) {
+        if (is_numeric($minSize)) {
             $this->minSize = $minSize;
         } else {
             $this->type_error(__FUNCTION__, 'int | float');
@@ -128,10 +123,8 @@ class sizeAxis extends configOptions
      * @param int $minValue
      * @return \sizeAxis
      */
-    function minValue($minValue)
-    {
-        if(is_numeric($minValue))
-        {
+    function minValue($minValue) {
+        if (is_numeric($minValue)) {
             $this->minValue = $minValue;
         } else {
             $this->type_error(__FUNCTION__, 'int | float');
@@ -139,6 +132,5 @@ class sizeAxis extends configOptions
 
         return $this;
     }
-
 
 }

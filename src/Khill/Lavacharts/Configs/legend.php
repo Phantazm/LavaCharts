@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * Legend Properties Object
  *
@@ -12,11 +15,10 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Helpers\Helpers;
 
-class legend extends configOptions
-{
+class legend extends configOptions {
+
     /**
      * Position of the legend.
      *
@@ -38,15 +40,13 @@ class legend extends configOptions
      */
     public $textStyle;
 
-
     /**
      * Builds the legend object when passed an array of configuration options.
      *
      * @param array Options for the legend
      * @return \tooltip
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         $this->options = array(
             'position',
             'alignment',
@@ -69,8 +69,7 @@ class legend extends configOptions
      * @param string Location of legend
      * @return \legend
      */
-    public function position($position)
-    {
+    public function position($position) {
         $values = array(
             'right',
             'top',
@@ -79,11 +78,10 @@ class legend extends configOptions
             'none'
         );
 
-        if(in_array($position, $values))
-        {
+        if (in_array($position, $values)) {
             $this->position = $position;
         } else {
-            $this->type_error(__FUNCTION__, 'string', 'with a value of '.Helpers::array_string($values));
+            $this->type_error(__FUNCTION__, 'string', 'with a value of ' . Helpers::array_string($values));
         }
 
         return $this;
@@ -107,19 +105,17 @@ class legend extends configOptions
      * @param string Alignment of the legend
      * @return \legend
      */
-    public function alignment($alignment)
-    {
+    public function alignment($alignment) {
         $values = array(
             'start',
             'center',
             'end'
         );
 
-        if(in_array($alignment, $values))
-        {
+        if (in_array($alignment, $values)) {
             $this->alignment = $alignment;
         } else {
-            $this->type_error(__FUNCTION__, 'string', 'with a value of '.Helpers::array_string($values));
+            $this->type_error(__FUNCTION__, 'string', 'with a value of ' . Helpers::array_string($values));
         }
 
         return $this;
@@ -131,10 +127,8 @@ class legend extends configOptions
      * @param textStyle Style of the legend
      * @return \legend
      */
-    public function textStyle($textStyle)
-    {
-        if(Helpers::is_textStyle($textStyle))
-        {
+    public function textStyle($textStyle) {
+        if (Helpers::is_textStyle($textStyle)) {
             $this->textStyle = $textStyle->getValues();
         } else {
             $this->type_error(__FUNCTION__, 'textStyle');

@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * Vertical Axis Properties Object
  *
@@ -12,9 +15,8 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
+class vAxis extends Axis {
 
-class vAxis extends Axis
-{
     /**
      * Stores all the information about the vertical axis. All options can be
      * set either by passing an array with associative values for option =>
@@ -24,8 +26,7 @@ class vAxis extends Axis
      * @param array Configuration options for the vAxis
      * @return \axis
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         return parent::__construct($config);
     }
 

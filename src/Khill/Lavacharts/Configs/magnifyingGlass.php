@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * magnifyingGlass Properties Object
  *
@@ -16,9 +19,8 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
+class magnifyingGlass extends configOptions {
 
-class magnifyingGlass extends configOptions
-{
     /**
      * The magnifying glass enabled state.
      */
@@ -42,8 +44,7 @@ class magnifyingGlass extends configOptions
      * @param zoomfactor
      * @return \tooltip
      */
-    public function __construct($zoomFactor = 5)
-    {
+    public function __construct($zoomFactor = 5) {
         $this->options = array('zoomFactor');
 
         $this->zoomFactor($zoomFactor);
@@ -57,10 +58,8 @@ class magnifyingGlass extends configOptions
      * @param int $zoomFactor
      * @return \magnifyingGlass
      */
-    public function zoomFactor($zoomFactor)
-    {
-        if(is_numeric($zoomFactor) && $zoomFactor > 0)
-        {
+    public function zoomFactor($zoomFactor) {
+        if (is_numeric($zoomFactor) && $zoomFactor > 0) {
             $this->zoomFactor = $zoomFactor;
         } else {
             $this->type_error(__FUNCTION__, 'int', 'greater than 0');

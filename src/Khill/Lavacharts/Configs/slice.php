@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * Tooltip Properties Object
  *
@@ -12,11 +15,10 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Helpers\Helpers;
 
-class slice extends configOptions
-{
+class slice extends configOptions {
+
     /**
      * The slice fill color.
      *
@@ -38,15 +40,13 @@ class slice extends configOptions
      */
     public $textStyle = null;
 
-
     /**
      * Builds the slice object with specified options.
      *
      * @param array Configuration options for the tooltip
      * @return \tooltip
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         $this->options = array(
             'color',
             'offset',
@@ -62,10 +62,8 @@ class slice extends configOptions
      * @param string
      * @return \slice
      */
-    public function color($color)
-    {
-        if(is_string($color))
-        {
+    public function color($color) {
+        if (is_string($color)) {
             $this->color = $color;
         } else {
             $this->type_error(__FUNCTION__, 'string', 'as a valid HTML color code');
@@ -81,10 +79,8 @@ class slice extends configOptions
      * @param float offset
      * @return \slice
      */
-    public function offset($offset)
-    {
-        if(is_float($offset) && Helpers::between(0.0, $offset, 1.0))
-        {
+    public function offset($offset) {
+        if (is_float($offset) && Helpers::between(0.0, $offset, 1.0)) {
             $this->offset = $offset;
         } else {
             $this->type_error(__FUNCTION__, 'float', 'where 0.0 < $offset < 0.1');
@@ -99,10 +95,8 @@ class slice extends configOptions
      * @param textStyle Valid textStyle object.
      * @return \slice
      */
-    public function textStyle($textStyle)
-    {
-        if(Helpers::is_textStyle($textStyle))
-        {
+    public function textStyle($textStyle) {
+        if (Helpers::is_textStyle($textStyle)) {
             $this->textStyle = $textStyle->values();
         } else {
             $this->type_error(__FUNCTION__, 'textStyle');

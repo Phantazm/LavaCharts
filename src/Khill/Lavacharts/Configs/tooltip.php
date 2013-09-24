@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * Tooltip Properties Object
  *
@@ -12,11 +15,10 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Helpers\Helpers;
 
-class tooltip extends configOptions
-{
+class tooltip extends configOptions {
+
     /**
      * Show color code for the tooltip
      *
@@ -38,15 +40,13 @@ class tooltip extends configOptions
      */
     public $trigger = null;
 
-
     /**
      * Builds the tooltip object with specified options.
      *
      * @param array Configuration options for the tooltip
      * @return \tooltip
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         $this->options = array(
             'showColorCode',
             'textStyle',
@@ -62,10 +62,8 @@ class tooltip extends configOptions
      * @param boolean State of showing the color code.
      * @return \tooltip
      */
-    public function showColorCode($showColorCode)
-    {
-        if(is_bool($showColorCode))
-        {
+    public function showColorCode($showColorCode) {
+        if (is_bool($showColorCode)) {
             $this->showColorCode = $showColorCode;
         } else {
             $this->type_error(__FUNCTION__, 'boolean');
@@ -80,10 +78,8 @@ class tooltip extends configOptions
      * @param textStyle Valid textStyle object.
      * @return \tooltip
      */
-    public function textStyle($textStyle)
-    {
-        if(Helpers::is_textStyle($textStyle))
-        {
+    public function textStyle($textStyle) {
+        if (Helpers::is_textStyle($textStyle)) {
             $this->textStyle = $textStyle->getValues();
         } else {
             $this->type_error(__FUNCTION__, 'object', 'class (textStyle)');
@@ -101,18 +97,16 @@ class tooltip extends configOptions
      * @param string Type of trigger, [ focus | none ].
      * @return \tooltip
      */
-    public function trigger($trigger)
-    {
+    public function trigger($trigger) {
         $values = array(
             'focus',
             'none'
         );
 
-        if(in_array($trigger, $values))
-        {
+        if (in_array($trigger, $values)) {
             $this->trigger = $trigger;
         } else {
-            $this->type_error(__FUNCTION__, 'string', 'with a value of '.Helpers::array_string($values));
+            $this->type_error(__FUNCTION__, 'string', 'with a value of ' . Helpers::array_string($values));
         }
 
         return $this;

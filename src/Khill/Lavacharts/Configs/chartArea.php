@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * Chart Area Properties Object
  *
@@ -12,11 +15,10 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Helpers\Helpers;
 
-class chartArea extends configOptions
-{
+class chartArea extends configOptions {
+
     /**
      * How far to draw the chart from the left border.
      *
@@ -45,15 +47,13 @@ class chartArea extends configOptions
      */
     public $height = null;
 
-
     /**
      * Builds the chartArea object when passed an array of configuration options.
      *
      * @param array $config
      * @return \chartArea
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         $this->options = array(
             'left',
             'top',
@@ -70,10 +70,8 @@ class chartArea extends configOptions
      * @param int Amount in pixels
      * @return \chartArea
      */
-    public function left($left)
-    {
-        if(Helpers::is_int_or_percent($left))
-        {
+    public function left($left) {
+        if (Helpers::is_int_or_percent($left)) {
             $this->left = $left;
         } else {
             $this->type_error(__FUNCTION__, 'int | string', 'representing pixels or a percent.');
@@ -88,10 +86,8 @@ class chartArea extends configOptions
      * @param int Amount in pixels
      * @return \chartArea
      */
-    public function top($top)
-    {
-        if(Helpers::is_int_or_percent($top))
-        {
+    public function top($top) {
+        if (Helpers::is_int_or_percent($top)) {
             $this->top = $top;
         } else {
             $this->type_error(__FUNCTION__, 'int | string', 'representing pixels or a percent.');
@@ -106,10 +102,8 @@ class chartArea extends configOptions
      * @param int Amount in pixels
      * @return \chartArea
      */
-    public function width($width)
-    {
-        if(Helpers::is_int_or_percent($width))
-        {
+    public function width($width) {
+        if (Helpers::is_int_or_percent($width)) {
             $this->width = $width;
         } else {
             $this->type_error(__FUNCTION__, 'int | string', 'representing pixels or a percent.');
@@ -124,10 +118,8 @@ class chartArea extends configOptions
      * @param int Amount in pixels
      * @return \chartArea
      */
-    public function height($height)
-    {
-        if(Helpers::is_int_or_percent($height))
-        {
+    public function height($height) {
+        if (Helpers::is_int_or_percent($height)) {
             $this->height = $height;
         } else {
             $this->type_error(__FUNCTION__, 'int | string', 'representing pixels or a percent.');

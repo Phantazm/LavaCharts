@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * Horizontal Axis Properties Object
  *
@@ -12,11 +15,10 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Helpers\Helpers;
 
-class hAxis extends Axis
-{
+class hAxis extends Axis {
+
     /**
      * Allow container to cutoff labels.
      *
@@ -66,7 +68,6 @@ class hAxis extends Axis
      */
     public $showTextEvery;
 
-
     /**
      * Stores all the information about the horizontal axis. All options can be
      * set either by passing an array with associative values for option =>
@@ -76,8 +77,7 @@ class hAxis extends Axis
      * @param array $options
      * @return \hAxis
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         $this->options = array_merge($this->options, array(
             'allowContainerBoundaryTextCutoff',
             'slantedText',
@@ -102,10 +102,8 @@ class hAxis extends Axis
      * @param boolean Status of allowing label cutoff
      * @return \hAxis
      */
-    public function allowContainerBoundaryTextCutoff($cutoff)
-    {
-        if(is_bool($cutoff))
-        {
+    public function allowContainerBoundaryTextCutoff($cutoff) {
+        if (is_bool($cutoff)) {
             $this->allowContainerBoundaryTextCutoff = $cutoff;
         } else {
             $this->type_error(__FUNCTION__, 'boolean');
@@ -128,10 +126,8 @@ class hAxis extends Axis
      * @param boolean Status of label slant
      * @return \hAxis
      */
-    public function slantedText($slant)
-    {
-        if(is_bool($slant) && $this->textPosition == 'out')
-        {
+    public function slantedText($slant) {
+        if (is_bool($slant) && $this->textPosition == 'out') {
             $this->slantedText = $slant;
         } else {
             $this->type_error(__FUNCTION__, 'boolean', 'and textPosition must be "out"');
@@ -150,10 +146,8 @@ class hAxis extends Axis
      * @param int Angle of labels
      * @return \hAxis
      */
-    public function slantedTextAngle($angle)
-    {
-        if(is_int($angle) && Helpers::between(1, $angle, 90))
-        {
+    public function slantedTextAngle($angle) {
+        if (is_int($angle) && Helpers::between(1, $angle, 90)) {
             $this->slantedTextAngle = $angle;
         } else {
             $this->type_error(__FUNCTION__, 'int', 'between 1 - 90');
@@ -176,10 +170,8 @@ class hAxis extends Axis
      * @param int Number of levels
      * @return \hAxis
      */
-    public function maxAlternation($alternation)
-    {
-        if(is_int($alternation))
-        {
+    public function maxAlternation($alternation) {
+        if (is_int($alternation)) {
             $this->maxAlternation = $alternation;
         } else {
             $this->type_error(__FUNCTION__, 'int');
@@ -199,10 +191,8 @@ class hAxis extends Axis
      * @param int Number of lines
      * @return \hAxis
      */
-    public function maxTextLines($maxTextLines)
-    {
-        if(is_int($maxTextLines))
-        {
+    public function maxTextLines($maxTextLines) {
+        if (is_int($maxTextLines)) {
             $this->maxTextLines = $maxTextLines;
         } else {
             $this->type_error(__FUNCTION__, 'int');
@@ -225,14 +215,11 @@ class hAxis extends Axis
      * @param int Amount in pixels
      * @return \hAxis
      */
-    public function minTextSpacing($minTextSpacing)
-    {
-        if(is_int($minTextSpacing))
-        {
+    public function minTextSpacing($minTextSpacing) {
+        if (is_int($minTextSpacing)) {
             $this->minTextSpacing = $minTextSpacing;
         } else {
-            if(isset($this->textStyle['fontSize']))
-            {
+            if (isset($this->textStyle['fontSize'])) {
                 $this->minTextSpacing = $this->textStyle['fontSize'];
             } else {
                 $this->type_error(__FUNCTION__, 'int', 'or set via textStyle[\'fontSize\']');
@@ -253,10 +240,8 @@ class hAxis extends Axis
      * @param int Number of labels
      * @return \hAxis
      */
-    public function showTextEvery($showTextEvery)
-    {
-        if(is_int($showTextEvery))
-        {
+    public function showTextEvery($showTextEvery) {
+        if (is_int($showTextEvery)) {
             $this->showTextEvery = $showTextEvery;
         } else {
             $this->type_error(__FUNCTION__, 'int');

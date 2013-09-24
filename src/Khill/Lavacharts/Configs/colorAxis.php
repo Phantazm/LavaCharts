@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * colorAxis Object
  *
@@ -12,9 +15,8 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
+class colorAxis extends configOptions {
 
-class colorAxis extends configOptions
-{
     /**
      * Minimum value for chart color data.
      *
@@ -43,7 +45,6 @@ class colorAxis extends configOptions
      */
     public $colors = null;
 
-
     /**
      * Builds the colorAxis object with specified options
      *
@@ -70,10 +71,8 @@ class colorAxis extends configOptions
      * @param numeric minValue
      * @return \colorAxis
      */
-    public function minValue($minValue)
-    {
-        if(is_numeric($minValue))
-        {
+    public function minValue($minValue) {
+        if (is_numeric($minValue)) {
             $this->minValue = $minValue;
         } else {
             $this->type_error(__FUNCTION__, 'numeric');
@@ -90,10 +89,8 @@ class colorAxis extends configOptions
      * @param numeric maxValue
      * @return \colorAxis
      */
-    public function maxValue($maxValue)
-    {
-        if(is_numeric($maxValue))
-        {
+    public function maxValue($maxValue) {
+        if (is_numeric($maxValue)) {
             $this->maxValue = $maxValue;
         } else {
             $this->type_error(__FUNCTION__, 'numeric');
@@ -114,10 +111,8 @@ class colorAxis extends configOptions
      * @param array values
      * @return \colorAxis
      */
-    public function values($values)
-    {
-        if(is_array($values) && Helpers::array_values_check($values, 'numeric'))
-        {
+    public function values($values) {
+        if (is_array($values) && Helpers::array_values_check($values, 'numeric')) {
             $this->values = $values;
         } else {
             $this->type_error(__FUNCTION__, 'array', 'with values as [ int | float ]');
@@ -137,10 +132,8 @@ class colorAxis extends configOptions
      * @param array colors
      * @return \colorAxis
      */
-    public function colors($colors)
-    {
-        if(is_array($colors) && Helpers::array_values_check($colors, 'string'))
-        {
+    public function colors($colors) {
+        if (is_array($colors) && Helpers::array_values_check($colors, 'string')) {
             $this->colors = $colors;
         } else {
             $this->type_error(__FUNCTION__, 'array', 'with values as strings');

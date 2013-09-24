@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * configOptions Parent Object
  *
@@ -12,11 +15,10 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Helpers\Helpers;
 
-class configOptions
-{
+class configOptions {
+
     /**
      * Output of the configOptions object.
      *
@@ -47,23 +49,19 @@ class configOptions
      * @param array Array of options.
      * @return \configOptions
      */
-    public function __construct($config)
-    {
+    public function __construct($config) {
         $this->className = Helpers::get_real_class($this);
 
-        if(is_array($config))
-        {
-            foreach($config as $option => $value)
-            {
-                if(in_array($option, $this->options))
-                {
+        if (is_array($config)) {
+            foreach ($config as $option => $value) {
+                if (in_array($option, $this->options)) {
                     $this->$option($value);
                 } else {
-                    $this->error('Ignoring "'.$option.'", not a valid configuration option.');
+                    $this->error('Ignoring "' . $option . '", not a valid configuration option.');
                 }
             }
         } else {
-            $this->type_error($this->className.'()', 'array', 'with valid keys as '.Helpers::array_string($this->options));
+            $this->type_error($this->className . '()', 'array', 'with valid keys as ' . Helpers::array_string($this->options));
         }
 
         return $this;
@@ -74,8 +72,7 @@ class configOptions
      *
      * @param string $msg
      */
-    public function error($msg)
-    {
+    public function error($msg) {
         Lavacharts::_set_error($this->className, $msg);
     }
 
@@ -86,15 +83,12 @@ class configOptions
      * @param string Variable type
      * @param string Extra message to append to error
      */
-    public function type_error($val, $type, $extra = false)
-    {
+    public function type_error($val, $type, $extra = false) {
         $msg = sprintf(
-            'Invalid value for %s, must be type (%s)',
-            $val,
-            $type
+                'Invalid value for %s, must be type (%s)', $val, $type
         );
 
-        $msg .= $extra ? ' '.$extra.'.' : '.';
+        $msg .= $extra ? ' ' . $extra . '.' : '.';
 
         $this->error($msg);
     }
@@ -109,20 +103,16 @@ class configOptions
      *
      * @return array
      */
-    public function toArray($keyName = null)
-    {
+    public function toArray($keyName = null) {
         $this->output = array();
 
-        foreach($this->options as $option)
-        {
-            if(isset($this->$option))
-            {
+        foreach ($this->options as $option) {
+            if (isset($this->$option)) {
                 $this->output[$option] = $this->$option;
             }
         }
 
-        if(is_null($keyName))
-        {
+        if (is_null($keyName)) {
             return array($this->className => $this->output);
         } else {
             return array($keyName => $this->output);
@@ -134,14 +124,11 @@ class configOptions
      *
      * @return array Array of the options of the object.
      */
-    public function getValues()
-    {
+    public function getValues() {
         $this->output = array();
 
-        foreach($this->options as $option)
-        {
-            if(isset($this->$option))
-            {
+        foreach ($this->options as $option) {
+            if (isset($this->$option)) {
                 $this->output[$option] = $this->$option;
             }
         }

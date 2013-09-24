@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Configs;
+<?php
+
+namespace Khill\Lavacharts\Configs;
+
 /**
  * Text Style Properties Object
  *
@@ -12,9 +15,8 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
+class textStyle extends configOptions {
 
-class textStyle extends configOptions
-{
     /**
      * Color of the text.
      *
@@ -36,15 +38,13 @@ class textStyle extends configOptions
      */
     public $fontSize;
 
-
     /**
      * Builds the textStyle object when passed an array of configuration options.
      *
      * @param array Options for the textStyle
      * @return \tooltip
      */
-    public function __construct($config = array())
-    {
+    public function __construct($config = array()) {
         $this->options = array(
             'color',
             'fontName',
@@ -62,10 +62,8 @@ class textStyle extends configOptions
      * @param string Valid HTML color
      * @return \textStyle
      */
-    public function color($color)
-    {
-        if(is_string($color))
-        {
+    public function color($color) {
+        if (is_string($color)) {
             $this->color = $color;
         } else {
             $this->type_error(__FUNCTION__, 'string', ' of a valid HTML color');
@@ -82,10 +80,8 @@ class textStyle extends configOptions
      * @param string Valid font name
      * @return \textStyle
      */
-    public function fontName($fontName)
-    {
-        if(is_string($fontName))
-        {
+    public function fontName($fontName) {
+        if (is_string($fontName)) {
             $this->fontName = $fontName;
         } else {
             $this->type_error(__FUNCTION__, 'string');
@@ -102,10 +98,8 @@ class textStyle extends configOptions
      * @param int Font size in pixels
      * @return \textStyle
      */
-    public function fontSize($fontSize)
-    {
-        if(is_int($fontSize))
-        {
+    public function fontSize($fontSize) {
+        if (is_int($fontSize)) {
             $this->fontSize = $fontSize;
         } else {
             $this->type_error(__FUNCTION__, 'int');
