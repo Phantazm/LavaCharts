@@ -97,13 +97,13 @@
                 <h1 class="heading">Installing</h1>
                 In your project's main composer.json file, add this line to the requirements:<br />
                 <pre class="prettyprint inline">"khill/lavacharts" : "dev-master"</pre><br />
-                
+
                 Run Composer to install LavaCharts:
                 <pre class="prettyprint inline">composer install</pre><br />
-                
+
                 Finally, register LavaCharts in your app by adding this line the providers array in "app/config/app.php"
                 <pre class="prettyprint inline">'Khill\Lavacharts\LavachartsServiceProvider'</pre><br />
-                
+
                 If you want to view the demos, publish the assets with:
                 <pre class="prettyprint inline">php artisan asset::publish khill/lavacharts</pre><br />
 
