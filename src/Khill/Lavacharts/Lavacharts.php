@@ -154,6 +154,8 @@ class Lavacharts {
      * @param array Passed arguments
      *
      * @return object Returns Charts, DataTables, and Config Objects
+     *
+     * @throws Exception
      */
     public function __call($member, $arguments) {
         if (in_array($member, self::$configClasses)) {
@@ -162,7 +164,7 @@ class Lavacharts {
             if (in_array($member, self::$supportedClasses)) {
                 return self::_chart_and_table_factory($member, empty($arguments[0]) ? '' : $arguments[0]);
             } else {
-                exit(get_class($this) . '::' . $member . '() Is Undefined');
+                throw new Exception('LavaCharts::' . $member . '() Is Undefined');
             }
         }
     }
@@ -202,6 +204,8 @@ class Lavacharts {
      * @param string $configObject
      *
      * @return object configuration object
+     *
+     * @throws Exception
      */
     private static function _config_object_factory($configObject, $options) {
         if (in_array($configObject, self::$configClasses)) {
@@ -213,7 +217,7 @@ class Lavacharts {
                 return empty($options[0]) ? new $class() : new $class($options[0]);
             }
         } else {
-            exit('[Lavacharts::' . $configObject . '()] is not a valid configObject');
+            throw new Exception('[Lavacharts::' . $configObject . '()] is not a valid configObject');
         }
     }
 
