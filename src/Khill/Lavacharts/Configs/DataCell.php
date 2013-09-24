@@ -54,6 +54,7 @@ class DataCell {
      * @param string $v The cell value
      * @param string $f A string version of the v value
      * @param string $p An object that is a map of custom values applied to the cell
+     *
      * @return \DataCell
      */
     public function __construct($v = null, $f = NULL, $p = NULL) {

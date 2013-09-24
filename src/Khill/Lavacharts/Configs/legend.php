@@ -44,6 +44,7 @@ class legend extends configOptions {
      * Builds the legend object when passed an array of configuration options.
      *
      * @param array Options for the legend
+     *
      * @return \tooltip
      */
     public function __construct($config = array()) {
@@ -67,6 +68,7 @@ class legend extends configOptions {
      * 'none'   - No legend is displayed.
      *
      * @param string Location of legend
+     *
      * @return \legend
      */
     public function position($position) {
@@ -103,6 +105,7 @@ class legend extends configOptions {
      * the default is 'center'; other legends default to 'start'.
      *
      * @param string Alignment of the legend
+     *
      * @return \legend
      */
     public function alignment($alignment) {
@@ -125,6 +128,7 @@ class legend extends configOptions {
      * An object that specifies the legend text style.
      *
      * @param textStyle Style of the legend
+     *
      * @return \legend
      */
     public function textStyle($textStyle) {

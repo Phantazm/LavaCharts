@@ -51,6 +51,7 @@ class chartArea extends configOptions {
      * Builds the chartArea object when passed an array of configuration options.
      *
      * @param array $config
+     *
      * @return \chartArea
      */
     public function __construct($config = array()) {
@@ -68,6 +69,7 @@ class chartArea extends configOptions {
      * Sets the left padding of the chart in the container.
      *
      * @param int Amount in pixels
+     *
      * @return \chartArea
      */
     public function left($left) {
@@ -84,6 +86,7 @@ class chartArea extends configOptions {
      * Sets the top padding of the chart in the container.
      *
      * @param int Amount in pixels
+     *
      * @return \chartArea
      */
     public function top($top) {
@@ -100,6 +103,7 @@ class chartArea extends configOptions {
      * Sets the width of the chart in the container.
      *
      * @param int Amount in pixels
+     *
      * @return \chartArea
      */
     public function width($width) {
@@ -116,6 +120,7 @@ class chartArea extends configOptions {
      * Sets the height of the chart in the container.
      *
      * @param int Amount in pixels
+     *
      * @return \chartArea
      */
     public function height($height) {

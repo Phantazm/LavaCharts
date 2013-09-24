@@ -44,6 +44,7 @@ class tooltip extends configOptions {
      * Builds the tooltip object with specified options.
      *
      * @param array Configuration options for the tooltip
+     *
      * @return \tooltip
      */
     public function __construct($config = array()) {
@@ -60,6 +61,7 @@ class tooltip extends configOptions {
      * Sets whether to show the color code.
      *
      * @param boolean State of showing the color code.
+     *
      * @return \tooltip
      */
     public function showColorCode($showColorCode) {
@@ -76,6 +78,7 @@ class tooltip extends configOptions {
      * Sets the text style of the tooltip.
      *
      * @param textStyle Valid textStyle object.
+     *
      * @return \tooltip
      */
     public function textStyle($textStyle) {
@@ -95,6 +98,7 @@ class tooltip extends configOptions {
      * 'none' - The tooltip will not be displayed.
      *
      * @param string Type of trigger, [ focus | none ].
+     *
      * @return \tooltip
      */
     public function trigger($trigger) {

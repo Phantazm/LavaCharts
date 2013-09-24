@@ -24,6 +24,7 @@ class vAxis extends Axis {
      * created.
      *
      * @param array Configuration options for the vAxis
+     *
      * @return \axis
      */
     public function __construct($config = array()) {

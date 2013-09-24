@@ -42,6 +42,7 @@ class textStyle extends configOptions {
      * Builds the textStyle object when passed an array of configuration options.
      *
      * @param array Options for the textStyle
+     *
      * @return \tooltip
      */
     public function __construct($config = array()) {
@@ -60,6 +61,7 @@ class textStyle extends configOptions {
      * valid HTML color string, for example: 'red' OR '#004411'
      *
      * @param string Valid HTML color
+     *
      * @return \textStyle
      */
     public function color($color) {
@@ -78,6 +80,7 @@ class textStyle extends configOptions {
      * Must be a valid font name.
      *
      * @param string Valid font name
+     *
      * @return \textStyle
      */
     public function fontName($fontName) {
@@ -96,6 +99,7 @@ class textStyle extends configOptions {
      * Must be a valid int for size in pixels.
      *
      * @param int Font size in pixels
+     *
      * @return \textStyle
      */
     public function fontSize($fontSize) {

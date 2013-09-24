@@ -1,4 +1,6 @@
-<?php namespace Khill\Lavacharts;
+<?php
+
+namespace Khill\Lavacharts;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -16,11 +18,10 @@ class LavachartsServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         $this->package('khill/lavacharts');
 
-        include __DIR__.'/../../routes.php';
+        include __DIR__ . '/../../routes.php';
     }
 
     /**
@@ -28,15 +29,12 @@ class LavachartsServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function register()
-    {
-        $this->app['lavacharts'] = $this->app->share(function($app)
-        {
+    public function register() {
+        $this->app['lavacharts'] = $this->app->share(function($app) {
             return new Lavacharts($app['view'], $app['config']);
         });
 
-        $this->app->booting(function()
-        {
+        $this->app->booting(function() {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
             $loader->alias('Lava', 'Khill\Lavacharts\Facades\Lavacharts');
         });
@@ -47,8 +45,7 @@ class LavachartsServiceProvider extends ServiceProvider {
      *
      * @return array
      */
-    public function provides()
-    {
+    public function provides() {
         return array('lavacharts');
     }
 

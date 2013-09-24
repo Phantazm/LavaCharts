@@ -54,6 +54,7 @@ class sizeAxis extends configOptions {
      *
      * @param array Associative array containing key => value pairs for the
      * various configuration options.
+     *
      * @return \sizeAxis
      */
     public function __construct($config = array()) {
@@ -71,6 +72,7 @@ class sizeAxis extends configOptions {
      * Sets maximum radius of the largest possible bubble, in pixels
      *
      * @param int $maxSize
+     *
      * @return \sizeAxis
      */
     function maxSize($maxSize) {
@@ -88,6 +90,7 @@ class sizeAxis extends configOptions {
      * $this->maxSize. Larger values will be cropped to this value.
      *
      * @param int $maxValue
+     *
      * @return \sizeAxis
      */
     function maxValue($maxValue) {
@@ -104,6 +107,7 @@ class sizeAxis extends configOptions {
      * Sets mininum radius of the smallest possible bubble, in pixels
      *
      * @param int $minSize
+     *
      * @return \sizeAxis
      */
     function minSize($minSize) {
@@ -121,6 +125,7 @@ class sizeAxis extends configOptions {
      * $this->minSize. Larger values will be cropped to this value.
      *
      * @param int $minValue
+     *
      * @return \sizeAxis
      */
     function minValue($minValue) {

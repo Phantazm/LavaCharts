@@ -1,4 +1,6 @@
-<?php namespace Khill\Lavacharts\Facades;
+<?php
+
+namespace Khill\Lavacharts\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -9,6 +11,8 @@ class Lavacharts extends Facade {
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'lavacharts'; }
+    protected static function getFacadeAccessor() {
+        return 'lavacharts';
+    }
 
 }

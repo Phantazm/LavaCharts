@@ -5,52 +5,46 @@ View::share('lavaAssetPath', 'packages/khill/lavacharts/');
 /**
  * LavaChart Home
  */
-Route::get('/lavacharts', function()
-{
+Route::get('/lavacharts', function() {
     return View::make('lavacharts::home');
 });
 
 /**
  * LavaChart Examples
  */
-Route::get('/lavacharts/examples', function()
-{
+Route::get('/lavacharts/examples', function() {
     return View::make('lavacharts::examples');
 });
 
 /**
  * LavaChart Examples
  */
-Route::get('/lavacharts/examples2', function()
-{
+Route::get('/lavacharts/examples2', function() {
     return View::make('lavacharts::examples2');
 });
 
 /**
  * LavaChart Home
  */
-Route::get('/lavacharts/tests', function()
-{
+Route::get('/lavacharts/tests', function() {
     return View::make('lavacharts::tests');
 });
 
 /**
  * Advanced Line Chart
  */
-Route::get('/line/basic', function()
-{
+Route::get('/line/basic', function() {
     $stocksTable = Lava::DataTable('Stocks');
 
     $stocksTable->addColumn('date', 'Date', 'date')
-                ->addColumn('number', 'Projected', 'projected')
-                ->addColumn('number', 'Closing', 'closing');
+            ->addColumn('number', 'Projected', 'projected')
+            ->addColumn('number', 'Closing', 'closing');
 
-    for($a = 1; $a < 30; $a++)
-    {
+    for ($a = 1; $a < 30; $a++) {
         $data = array(
             Lava::jsDate(2011, 5, $a), //Date
-            rand(9500,10000),             //Line 1's data
-            rand(9500,10000)              //Line 2's data
+            rand(9500, 10000), //Line 1's data
+            rand(9500, 10000)              //Line 2's data
         );
 
         $stocksTable->addRow($data);
@@ -64,20 +58,18 @@ Route::get('/line/basic', function()
 /**
  * Advanced Line Chart
  */
-Route::get('/line/advanced', function()
-{
+Route::get('/line/advanced', function() {
     $timesTable = Lava::DataTable('Times');
 
     $timesTable->addColumn('date', 'Dates', 'dates')
-               ->addColumn('number', 'Estimated Time', 'schedule')
-               ->addColumn('number', 'Actual Time', 'run');
+            ->addColumn('number', 'Estimated Time', 'schedule')
+            ->addColumn('number', 'Actual Time', 'run');
 
-    for($a = 1; $a < 30; $a++)
-    {
+    for ($a = 1; $a < 30; $a++) {
         $data = array(
             Lava::jsDate(2013, 8, $a), //Date object
-            rand(5,30),                //Line 1's data
-            rand(5,30),                //Line 2's data
+            rand(5, 30), //Line 1's data
+            rand(5, 30), //Line 2's data
         );
 
         $timesTable->addRow($data);
@@ -85,23 +77,23 @@ Route::get('/line/advanced', function()
 
     //Either Chain functions together and assign to variables
     $legendStyle = Lava::textStyle()->color('#F3BB00')
-                                    ->fontName('Arial')
-                                    ->fontSize(20);
+            ->fontName('Arial')
+            ->fontSize(20);
 
     $legend = Lava::legend()->position('bottom')
-                            ->alignment('start')
-                            ->textStyle($legendStyle);
+            ->alignment('start')
+            ->textStyle($legendStyle);
 
 
     //Or pass in arrays with set options into the function's constructor
     $tooltip = Lava::tooltip(array(
-                    'showColorCode' => true,
-                    'textStyle' => Lava::textStyle(array(
-                        'color' => '#C0C0B0',
-                        'fontName' => 'Courier New',
-                        'fontSize' => 10
-                    ))
-                ));
+                'showColorCode' => true,
+                'textStyle' => Lava::textStyle(array(
+                    'color' => '#C0C0B0',
+                    'fontName' => 'Courier New',
+                    'fontSize' => 10
+                ))
+    ));
 
 
     $config = array(

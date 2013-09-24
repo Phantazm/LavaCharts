@@ -45,6 +45,7 @@ class backgroundColor extends configOptions {
      * [ stroke | strokeWidth | fill ]
      *
      * @param array Configuration options
+     *
      * @return \backgroundColor
      */
     public function __construct($config = array()) {
@@ -62,6 +63,7 @@ class backgroundColor extends configOptions {
      * Sets the chart border color. Example: 'red' or '#A2A2A2'
      *
      * @param string Valid HTML color string.
+     *
      * @return \backgroundColor
      */
     public function stroke($stroke) {
@@ -78,6 +80,7 @@ class backgroundColor extends configOptions {
      * Sets the chart border width.
      *
      * @param int Border width, in pixels.
+     *
      * @return \backgroundColor
      */
     public function strokeWidth($strokeWidth) {
@@ -94,6 +97,7 @@ class backgroundColor extends configOptions {
      * Sets the chart color fill, Example: 'blue' or '#C5C5C5'
      *
      * @param string Valid HTML color string.
+     *
      * @return \backgroundColor
      */
     public function fill($fill) {

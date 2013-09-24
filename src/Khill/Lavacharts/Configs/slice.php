@@ -44,6 +44,7 @@ class slice extends configOptions {
      * Builds the slice object with specified options.
      *
      * @param array Configuration options for the tooltip
+     *
      * @return \tooltip
      */
     public function __construct($config = array()) {
@@ -60,6 +61,7 @@ class slice extends configOptions {
      * The color to use for this slice. Specify a valid HTML color string.
      *
      * @param string
+     *
      * @return \slice
      */
     public function color($color) {
@@ -77,6 +79,7 @@ class slice extends configOptions {
      * from 0.0 (not at all) to 1.0 (the pie's radius).
      *
      * @param float offset
+     *
      * @return \slice
      */
     public function offset($offset) {
@@ -93,6 +96,7 @@ class slice extends configOptions {
      * Overrides the global pieSliceTextSlice for this slice.
      *
      * @param textStyle Valid textStyle object.
+     *
      * @return \slice
      */
     public function textStyle($textStyle) {

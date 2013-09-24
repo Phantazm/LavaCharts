@@ -75,6 +75,7 @@ class hAxis extends Axis {
      * created.
      *
      * @param array $options
+     *
      * @return \hAxis
      */
     public function __construct($config = array()) {
@@ -100,6 +101,7 @@ class hAxis extends Axis {
      * This option is only supported for a discrete axis.
      *
      * @param boolean Status of allowing label cutoff
+     *
      * @return \hAxis
      */
     public function allowContainerBoundaryTextCutoff($cutoff) {
@@ -124,6 +126,7 @@ class hAxis extends Axis {
      * This option is only supported for a discrete axis.
      *
      * @param boolean Status of label slant
+     *
      * @return \hAxis
      */
     public function slantedText($slant) {
@@ -144,6 +147,7 @@ class hAxis extends Axis {
      * This option is only supported for a discrete axis.
      *
      * @param int Angle of labels
+     *
      * @return \hAxis
      */
     public function slantedTextAngle($angle) {
@@ -168,6 +172,7 @@ class hAxis extends Axis {
      * This option is only supported for a discrete axis.
      *
      * @param int Number of levels
+     *
      * @return \hAxis
      */
     public function maxAlternation($alternation) {
@@ -189,6 +194,7 @@ class hAxis extends Axis {
      * This option is only supported for a discrete axis.
      *
      * @param int Number of lines
+     *
      * @return \hAxis
      */
     public function maxTextLines($maxTextLines) {
@@ -213,6 +219,7 @@ class hAxis extends Axis {
      * This option is only supported for a discrete axis.
      *
      * @param int Amount in pixels
+     *
      * @return \hAxis
      */
     public function minTextSpacing($minTextSpacing) {
@@ -238,6 +245,7 @@ class hAxis extends Axis {
      * This option is only supported for a discrete axis.
      *
      * @param int Number of labels
+     *
      * @return \hAxis
      */
     public function showTextEvery($showTextEvery) {

@@ -47,6 +47,7 @@ class configOptions {
      * child object created from this master object.
      *
      * @param array Array of options.
+     *
      * @return \configOptions
      */
     public function __construct($config) {
@@ -101,6 +102,7 @@ class configOptions {
      *
      * Called with no label returns an array with the classname as the key.
      *
+     *
      * @return array
      */
     public function toArray($keyName = null) {
@@ -121,6 +123,7 @@ class configOptions {
 
     /**
      * Same as toArray, but without the class name as a key to being multi-dimension.
+     *
      *
      * @return array Array of the options of the object.
      */

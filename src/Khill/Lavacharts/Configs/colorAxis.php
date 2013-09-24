@@ -49,6 +49,7 @@ class colorAxis extends configOptions {
      * Builds the colorAxis object with specified options
      *
      * @param array config
+     *
      * @return \colorAxis
      */
     public function __construct($config = array()) {
@@ -69,6 +70,7 @@ class colorAxis extends configOptions {
      * the $this->colors range.
      *
      * @param numeric minValue
+     *
      * @return \colorAxis
      */
     public function minValue($minValue) {
@@ -87,6 +89,7 @@ class colorAxis extends configOptions {
      * the $this->colors range.
      *
      * @param numeric maxValue
+     *
      * @return \colorAxis
      */
     public function maxValue($maxValue) {
@@ -109,6 +112,7 @@ class colorAxis extends configOptions {
      * [minValue, maxValue].
      *
      * @param array values
+     *
      * @return \colorAxis
      */
     public function values($values) {
@@ -130,6 +134,7 @@ class colorAxis extends configOptions {
      * smallest value, and the last color as the highest.
      *
      * @param array colors
+     *
      * @return \colorAxis
      */
     public function colors($colors) {

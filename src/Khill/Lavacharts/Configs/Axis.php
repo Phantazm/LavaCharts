@@ -553,6 +553,7 @@ class Axis extends configOptions {
      * This option is only supported for a continuous axis.
      *
      * @param int $min Valid integer.
+     * 
      * @return \Axis
      */
     public function minValue($min) {

@@ -1,4 +1,7 @@
-<?php namespace Khill\Lavacharts\Charts;
+<?php
+
+namespace Khill\Lavacharts\Charts;
+
 /**
  * PieChart Class
  *
@@ -12,13 +15,11 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Charts\Chart;
 
-class PieChart extends Chart
-{
-    public function __construct($chartLabel)
-    {
+class PieChart extends Chart {
+
+    public function __construct($chartLabel) {
         parent::__construct($chartLabel);
 
         $this->defaults = array_merge($this->defaults, array(
@@ -39,12 +40,11 @@ class PieChart extends Chart
      * If set to true, displays a three-dimensional chart.
      *
      * @param boolean $is3D
+     *
      * @return \PieChart
      */
-    public function is3D($is3D)
-    {
-        if(is_bool($is3D))
-        {
+    public function is3D($is3D) {
+        if (is_bool($is3D)) {
             $this->addOption(array('is3D' => $is3D));
         } else {
             $this->type_error(__FUNCTION__, 'boolean');
@@ -71,16 +71,14 @@ class PieChart extends Chart
      *
      *
      * @param array Array of slice objects
+     *
      * @return \PieChart
      */
-    public function slices($slices)
-    {
-        if(is_array($slices) && array_values_check($slices, 'class', 'slice'))
-        {
+    public function slices($slices) {
+        if (is_array($slices) && array_values_check($slices, 'class', 'slice')) {
             $pizzaBox = array();
 
-            foreach($slices as $key => $slice)
-            {
+            foreach ($slices as $key => $slice) {
                 $pizzaBox[$key] = $slice->values();
             }
 
@@ -97,12 +95,11 @@ class PieChart extends Chart
      * two-dimensional; is3D == false || null
      *
      * @param string HTML color
+     *
      * @return \PieChart
      */
-    public function pieSliceBorderColor($pieSliceBorderColor)
-    {
-        if(is_string($pieSliceBorderColor))
-        {
+    public function pieSliceBorderColor($pieSliceBorderColor) {
+        if (is_string($pieSliceBorderColor)) {
             $this->addOption(array('pieSliceBorderColor' => $pieSliceBorderColor));
         } else {
             $this->type_error(__FUNCTION__, 'string');
@@ -120,10 +117,10 @@ class PieChart extends Chart
      * 'none' - No text is displayed.
      *
      * @param string $pieSliceText
+     *
      * @return \PieChart
      */
-    public function pieSliceText($pieSliceText)
-    {
+    public function pieSliceText($pieSliceText) {
         $values = array(
             'percentage',
             'value',
@@ -131,11 +128,10 @@ class PieChart extends Chart
             'none'
         );
 
-        if(in_array($pieSliceText, $values))
-        {
+        if (in_array($pieSliceText, $values)) {
             $this->addOption(array('pieSliceText' => $pieSliceText));
         } else {
-            $this->type_error(__FUNCTION__, 'string', 'with a value of '.Helpers::array_string($values));
+            $this->type_error(__FUNCTION__, 'string', 'with a value of ' . Helpers::array_string($values));
         }
 
         return $this;
@@ -146,12 +142,11 @@ class PieChart extends Chart
      * object, set the values then pass it to this function or to the constructor.
      *
      * @param textStyle $textStyle
+     *
      * @return \PieChart
      */
-    public function pieSliceTextStyle($textStyle)
-    {
-        if(is_a($textStyle, 'textStyle'))
-        {
+    public function pieSliceTextStyle($textStyle) {
+        if (is_a($textStyle, 'textStyle')) {
             //$this->addOption($textStyle->toArray(__FUNCTION__));
             $this->addOption(array('pieSliceTextStyle' => $textStyle->values()));
         } else {
@@ -166,12 +161,11 @@ class PieChart extends Chart
      * orient the leftmost edge of the first slice directly up.
      *
      * @param int start angle
+     *
      * @return \PieChart
      */
-    public function pieStartAngle($pieStartAngle)
-    {
-        if(is_int($pieStartAngle))
-        {
+    public function pieStartAngle($pieStartAngle) {
+        if (is_int($pieStartAngle)) {
             $this->addOption(array('pieStartAngle' => $pieStartAngle));
         } else {
             $this->type_error(__FUNCTION__, 'int');
@@ -185,12 +179,11 @@ class PieChart extends Chart
      * draw clockwise.
      *
      * @param boolean $reverseCategories
+     *
      * @return \PieChart
      */
-    public function reverseCategories($reverseCategories)
-    {
-        if(is_bool($reverseCategories))
-        {
+    public function reverseCategories($reverseCategories) {
+        if (is_bool($reverseCategories)) {
             $this->addOption(array('reverseCategories' => $reverseCategories));
         } else {
             $this->type_error(__FUNCTION__, 'boolean');
@@ -206,12 +199,11 @@ class PieChart extends Chart
      * to show individually any slice which is smaller than half a degree.
      *
      * @param numeric $sliceVisibilityThreshold
+     *
      * @return \PieChart
      */
-    public function sliceVisibilityThreshold($sliceVizThreshold)
-    {
-        if(is_numeric($sliceVizThreshold))
-        {
+    public function sliceVisibilityThreshold($sliceVizThreshold) {
+        if (is_numeric($sliceVizThreshold)) {
             $this->addOption(array('sliceVisibilityThreshold' => $sliceVizThreshold));
         } else {
             $this->type_error(__FUNCTION__, 'numeric');
@@ -225,12 +217,11 @@ class PieChart extends Chart
      * sliceVisibilityThreshold.
      *
      * @param type $pieResidueSliceColor
+     *
      * @return \PieChart
      */
-    public function pieResidueSliceColor($pieResidueSliceColor)
-    {
-        if(is_string($pieResidueSliceColor))
-        {
+    public function pieResidueSliceColor($pieResidueSliceColor) {
+        if (is_string($pieResidueSliceColor)) {
             $this->addOption(array('pieResidueSliceColor' => $pieResidueSliceColor));
         } else {
             $this->type_error(__FUNCTION__, 'string', 'representing a valide HTML color');
@@ -244,12 +235,11 @@ class PieChart extends Chart
      * sliceVisibilityThreshold.
      *
      * @param string $pieResidueSliceLabel
+     *
      * @return \PieChart
      */
-    public function pieResidueSliceLabel($pieResidueSliceLabel)
-    {
-        if(is_string($pieResidueSliceLabel))
-        {
+    public function pieResidueSliceLabel($pieResidueSliceLabel) {
+        if (is_string($pieResidueSliceLabel)) {
             $this->addOption(array('pieResidueSliceLabel' => $pieResidueSliceLabel));
         } else {
             $this->type_error(__FUNCTION__, 'string');

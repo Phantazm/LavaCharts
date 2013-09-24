@@ -1,4 +1,8 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 /**
  * DonutChart Class
  *
@@ -12,16 +16,14 @@
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-
 use Khill\Lavacharts\Charts\PieChart;
 
-class DonutChart extends PieChart
-{
-    public function __construct($chartLabel)
-    {
+class DonutChart extends PieChart {
+
+    public function __construct($chartLabel) {
         parent::__construct($chartLabel);
 
-        $this->defaults  = array_merge($this->defaults, array('pieHole'));
+        $this->defaults = array_merge($this->defaults, array('pieHole'));
         $this->chartType = 'PieChart';
     }
 
@@ -30,12 +32,11 @@ class DonutChart extends PieChart
      * equal to number times the radius of the chart.
      *
      * @param numeric $pieHole
+     *
      * @return \PieChart
      */
-    public function pieHole($pieHole)
-    {
-        if(is_numeric($pieHole) && $pieHole > 0 && $pieHole < 1)
-        {
+    public function pieHole($pieHole) {
+        if (is_numeric($pieHole) && $pieHole > 0 && $pieHole < 1) {
             $this->addOption(array('pieHole' => $pieHole));
         } else {
             $this->type_error(__FUNCTION__, 'numeric', 'while, 0 < pieHole < 1 ');

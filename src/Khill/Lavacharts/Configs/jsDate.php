@@ -36,6 +36,7 @@ class jsDate {
      * @param int Minute
      * @param int Second
      * @param int Millisecond
+     *
      * @return \jsDate
      */
     public function __construct(
@@ -56,6 +57,7 @@ class jsDate {
      * Parses array of values corresponding to if called as args to constructor
      *
      * @param array
+     *
      * @return \jsDate
      */
     public function parseArray($array) {
@@ -72,6 +74,7 @@ class jsDate {
 
     /**
      * Outputs the object as a valide javascript string.
+     *
      *
      * @return string Javscript date declaration
      */

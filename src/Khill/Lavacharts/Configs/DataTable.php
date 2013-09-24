@@ -62,6 +62,7 @@ class DataTable {
      * @param string Describing the column data type
      * @param string A label for the column. (Optional)
      * @param string An ID for the column. (Optinal)
+     *
      * @return \DataTable
      */
     public function addColumn($typeOrDescriptionArray, $opt_label = '', $opt_id = '') {
@@ -169,6 +170,7 @@ class DataTable {
      *
      * @see \DataCell
      * @param mixed $opt_cell Array of values or DataCells.
+     *
      * @return \DataTable
      */
     public function addRow($opt_cellArray = null) {
@@ -228,6 +230,7 @@ class DataTable {
      *
      * @see addRow()
      * @param array Multi-dimensional array of rows.
+     *
      * @return \DataTable
      */
     public function addRows($arrayOfRows) {
@@ -241,203 +244,6 @@ class DataTable {
 
         return $this;
     }
-
-    /*
-      public function getColumnId($columnIndex)
-      {
-
-      }
-
-      public function getColumnLabel($columnIndex)
-      {
-
-      }
-
-      public function getColumnPattern($columnIndex)
-      {
-
-      }
-
-      public function getColumnProperty($columnIndex, $name)
-      {
-
-      }
-
-      public function getColumnRange($columnIndex)
-      {
-
-      }
-
-      public function getColumnRole($columnIndex)
-      {
-
-      }
-
-      public function getColumnType($columnIndex)
-      {
-
-      }
-
-      public function getDistinctValues($columnIndex)
-      {
-
-      }
-
-      public function getFilteredRows($filters)
-      {
-
-      }
-
-      public function getFormattedValue($rowIndex, $columnIndex)
-      {
-
-      }
-
-      public function getNumberOfColumns()
-      {
-      return count($this->cols);
-      }
-
-      public function getNumberOfRows()
-      {
-      return count($this->rows);
-      }
-
-      public function getProperties($rowIndex, $columnIndex)
-      {
-
-      }
-
-      public function getProperty($rowIndex, $columnIndex, $name)
-      {
-
-      }
-
-      public function getRowProperties($rowIndex)
-      {
-
-      }
-
-      public function getRowProperty($rowIndex, $name)
-      {
-
-      }
-
-      public function getSortedRows($sortColumns)
-      {
-
-      }
-
-      public function getTableProperties()
-      {
-
-      }
-
-      public function getTableProperty($name)
-      {
-
-      }
-
-      public function getValue($rowIndex, $columnIndex)
-      {
-
-      }
-
-      public function insertColumn($columnIndex, $type, $label='', $id='')
-      {
-
-      }
-
-      public function insertRows($rowIndex, $numberOrArray)
-      {
-
-      }
-
-      public function removeColumn($columnIndex)
-      {
-
-      }
-
-      public function removeColumns($columnIndex, $numberOfColumns)
-      {
-
-      }
-
-      public function removeRow($rowIndex)
-      {
-
-      }
-
-      public function removeRows($rowIndex, $numberOfRows)
-      {
-
-      }
-
-      public function setCell($rowIndex, $columnIndex, $value='', $formattedValue='', $properties='')
-      {
-
-      }
-
-      public function setColumnLabel($columnIndex, $label)
-      {
-
-      }
-
-      public function setColumnProperty($columnIndex, $name, $value)
-      {
-
-      }
-
-      public function setColumnProperties($columnIndex, $properties)
-      {
-
-      }
-
-      public function setFormattedValue($rowIndex, $columnIndex, $formattedValue)
-      {
-
-      }
-
-      public function setProperty($rowIndex, $columnIndex, $name, $value)
-      {
-
-      }
-
-      public function setProperties($rowIndex, $columnIndex, $properties)
-      {
-
-      }
-
-      public function setRowProperty($rowIndex, $name, $value)
-      {
-
-      }
-
-      public function setRowProperties($rowIndex, $properties)
-      {
-
-      }
-
-      public function setTableProperty($name, $value)
-      {
-
-      }
-
-      public function setTableProperties($properties)
-      {
-
-      }
-
-      public function setValue($rowIndex, $columnIndex, $value)
-      {
-
-      }
-
-      public function sort($sortColumns)
-      {
-
-      }
-     */
 
     public function toJSON() {
         return json_encode($this);

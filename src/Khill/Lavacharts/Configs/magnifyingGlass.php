@@ -42,6 +42,7 @@ class magnifyingGlass extends configOptions {
      * Passing a number in upon creation, then the zoomFactor will be set.
      *
      * @param zoomfactor
+     *
      * @return \tooltip
      */
     public function __construct($zoomFactor = 5) {
@@ -56,6 +57,7 @@ class magnifyingGlass extends configOptions {
      * The zoom factor of the magnifying glass. Can be any number greater than 0.
      *
      * @param int $zoomFactor
+     *
      * @return \magnifyingGlass
      */
     public function zoomFactor($zoomFactor) {
