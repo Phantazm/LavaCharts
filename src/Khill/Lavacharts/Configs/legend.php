@@ -17,8 +17,8 @@ namespace Khill\Lavacharts\Configs;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class legend extends configOptions {
-
+class legend extends configOptions
+{
     /**
      * Position of the legend.
      *
@@ -47,7 +47,8 @@ class legend extends configOptions {
      *
      * @return \tooltip
      */
-    public function __construct($config = array()) {
+    public function __construct($config = array())
+    {
         $this->options = array(
             'position',
             'alignment',
@@ -71,7 +72,8 @@ class legend extends configOptions {
      *
      * @return \legend
      */
-    public function position($position) {
+    public function position($position)
+    {
         $values = array(
             'right',
             'top',
@@ -108,7 +110,8 @@ class legend extends configOptions {
      *
      * @return \legend
      */
-    public function alignment($alignment) {
+    public function alignment($alignment)
+    {
         $values = array(
             'start',
             'center',
@@ -131,7 +134,8 @@ class legend extends configOptions {
      *
      * @return \legend
      */
-    public function textStyle($textStyle) {
+    public function textStyle($textStyle)
+    {
         if (Helpers::is_textStyle($textStyle)) {
             $this->textStyle = $textStyle->getValues();
         } else {

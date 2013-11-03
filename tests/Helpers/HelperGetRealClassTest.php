@@ -4,9 +4,10 @@ namespace Khill\Lavacharts;
 
 use Khill\Lavacharts\Helpers\Helpers as H;
 
-class HelperGetRealClassTest extends TestCase\HelperTestCase {
-
-    public function testGetRealClassFromConfigObject() {
+class HelperGetRealClassTest extends TestCase\HelperTestCase
+{
+    public function testGetRealClassFromConfigObject()
+    {
         $actual = H::get_real_class($this->textStyle);
         $expected = 'textStyle';
 
@@ -16,11 +17,13 @@ class HelperGetRealClassTest extends TestCase\HelperTestCase {
     /**
      * @dataProvider badParamsProvider
      */
-    public function testGetRealClassWithBadParam($badParams) {
+    public function testGetRealClassWithBadParam($badParams)
+    {
         $this->assertFalse(H::get_real_class($badParams));
     }
 
-    public function badParamsProvider() {
+    public function badParamsProvider()
+    {
         return array(
             array('string'),
             array(123),

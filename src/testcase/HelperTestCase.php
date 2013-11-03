@@ -4,9 +4,10 @@ namespace Khill\Lavacharts\TestCase;
 
 use Khill\Lavacharts\Configs as C;
 
-class HelperTestCase extends \PHPUnit_Framework_TestCase {
-
-    public function setUp() {
+class HelperTestCase extends \PHPUnit_Framework_TestCase
+{
+    public function setUp()
+    {
         $this->backgroundColor = new C\backgroundColor();
         $this->chartArea = new C\chartArea();
         $this->colorAxis = new C\colorAxis();

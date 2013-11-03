@@ -1,7 +1,4 @@
-<?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+<?php namespace Khill\Lavacharts\Charts;
 
 /**
  * DonutChart Class
@@ -16,11 +13,11 @@ if (!defined('BASEPATH'))
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-use Khill\Lavacharts\Charts\PieChart;
 
-class DonutChart extends PieChart {
-
-    public function __construct($chartLabel) {
+class DonutChart extends PieChart
+{
+    public function __construct($chartLabel)
+    {
         parent::__construct($chartLabel);
 
         $this->defaults = array_merge($this->defaults, array('pieHole'));
@@ -35,7 +32,8 @@ class DonutChart extends PieChart {
      *
      * @return \PieChart
      */
-    public function pieHole($pieHole) {
+    public function pieHole($pieHole)
+    {
         if (is_numeric($pieHole) && $pieHole > 0 && $pieHole < 1) {
             $this->addOption(array('pieHole' => $pieHole));
         } else {

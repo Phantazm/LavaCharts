@@ -17,8 +17,8 @@ namespace Khill\Lavacharts\Configs;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class tooltip extends configOptions {
-
+class tooltip extends configOptions
+{
     /**
      * Show color code for the tooltip
      *
@@ -47,7 +47,8 @@ class tooltip extends configOptions {
      *
      * @return \tooltip
      */
-    public function __construct($config = array()) {
+    public function __construct($config = array())
+    {
         $this->options = array(
             'showColorCode',
             'textStyle',
@@ -64,7 +65,8 @@ class tooltip extends configOptions {
      *
      * @return \tooltip
      */
-    public function showColorCode($showColorCode) {
+    public function showColorCode($showColorCode)
+    {
         if (is_bool($showColorCode)) {
             $this->showColorCode = $showColorCode;
         } else {
@@ -81,7 +83,8 @@ class tooltip extends configOptions {
      *
      * @return \tooltip
      */
-    public function textStyle($textStyle) {
+    public function textStyle($textStyle)
+    {
         if (Helpers::is_textStyle($textStyle)) {
             $this->textStyle = $textStyle->getValues();
         } else {
@@ -101,7 +104,8 @@ class tooltip extends configOptions {
      *
      * @return \tooltip
      */
-    public function trigger($trigger) {
+    public function trigger($trigger)
+    {
         $values = array(
             'focus',
             'none'

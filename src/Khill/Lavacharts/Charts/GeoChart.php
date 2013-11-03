@@ -1,7 +1,4 @@
-<?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+<?php namespace Khill\Lavacharts\Charts;
 
 /**
  * GeoChart Class
@@ -19,11 +16,11 @@ if (!defined('BASEPATH'))
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-use Khill\Lavacharts\Charts\Chart;
 
-class GeoChart extends Chart {
-
-    public function __construct($chartLabel) {
+class GeoChart extends Chart
+{
+    public function __construct($chartLabel)
+    {
         parent::__construct($chartLabel);
 
         $this->defaults = array_merge($this->defaults, array(
@@ -48,7 +45,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function colorAxis($colorAxis) {
+    public function colorAxis($colorAxis)
+    {
         if (is_a($colorAxis, 'colorAxis')) {
             $this->addOption($colorAxis);
         } else {
@@ -65,7 +63,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function datalessRegionColor($datalessRegionColor) {
+    public function datalessRegionColor($datalessRegionColor)
+    {
         if (is_string($datalessRegionColor) && !empty($datalessRegionColor)) {
             $this->addOption(array('datalessRegionColor' => $datalessRegionColor));
         } else {
@@ -86,7 +85,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function displayMode($displayMode) {
+    public function displayMode($displayMode)
+    {
         $values = array(
             'auto',
             'regions',
@@ -113,7 +113,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function enableRegionInteractivity($enableRegionInter) {
+    public function enableRegionInteractivity($enableRegionInter)
+    {
         if (is_bool($enableRegionInter)) {
             $this->addOption(array('enableRegionInteractivity' => $enableRegionInter));
         } else {
@@ -136,7 +137,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function keepAspectRatio($keepAspectRatio) {
+    public function keepAspectRatio($keepAspectRatio)
+    {
         if (is_bool($keepAspectRatio)) {
             $this->addOption(array('keepAspectRatio' => $keepAspectRatio));
         } else {
@@ -159,7 +161,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function region($region) {
+    public function region($region)
+    {
         if (is_string($region)) {
             $this->addOption(array('region' => $region));
         } else {
@@ -177,7 +180,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function magnifyingGlass($magnifyingGlass) {
+    public function magnifyingGlass($magnifyingGlass)
+    {
         if (is_a($magnifyingGlass, 'magnifyingGlass')) {
             $this->addOption($magnifyingGlass);
         } else {
@@ -195,7 +199,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function markerOpacity($markerOpacity) {
+    public function markerOpacity($markerOpacity)
+    {
         if (is_float($markerOpacity) && between($markerOpacity, 0, 1)) {
             $this->addOption(array('markerOpacity' => $markerOpacity));
         } else {
@@ -218,7 +223,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function resolution($resolution) {
+    public function resolution($resolution)
+    {
         $values = array(
             'countries',
             'provinces',
@@ -242,7 +248,8 @@ class GeoChart extends Chart {
      *
      * @return \GeoChart
      */
-    public function sizeAxis($sizeAxis) {
+    public function sizeAxis($sizeAxis)
+    {
         if (is_a($sizeAxis, 'sizeAxis')) {
             $this->addOption($sizeAxis);
         } else {

@@ -18,9 +18,10 @@ namespace Khill\Lavacharts\Charts;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class ColumnChart extends Chart {
-
-    public function __construct($chartLabel) {
+class ColumnChart extends Chart
+{
+    public function __construct($chartLabel)
+    {
         parent::__construct($chartLabel);
 
         $this->defaults = array_merge($this->defaults, array(
@@ -94,7 +95,8 @@ class ColumnChart extends Chart {
      *
      * @return \ColumnChart
      */
-    public function axisTitlesPosition($position) {
+    public function axisTitlesPosition($position)
+    {
         $values = array(
             'in',
             'out',
@@ -120,7 +122,8 @@ class ColumnChart extends Chart {
      *
      * @return \ColumnChart
      */
-    public function barGroupWidth($barGroupWidth) {
+    public function barGroupWidth($barGroupWidth)
+    {
         if (Helpers::is_int_or_percent($barGroupWidth)) {
 //            $bar = new bar($barGroupWidth);
 //            $this->addOption($bar->toArray());
@@ -141,7 +144,8 @@ class ColumnChart extends Chart {
      *
      * @return \ColumnChart
      */
-    public function hAxis($hAxis) {
+    public function hAxis($hAxis)
+    {
         if (Helpers::is_hAxis($hAxis)) {
             $this->addOption($hAxis->toArray());
         } else {
@@ -159,7 +163,8 @@ class ColumnChart extends Chart {
      *
      * @return \ColumnChart
      */
-    public function isHtml($isHTML) {
+    public function isHtml($isHTML)
+    {
         if (is_bool($isHTML)) {
             $this->addOption(array('isHTML' => $isHTML));
         } else {
@@ -176,7 +181,8 @@ class ColumnChart extends Chart {
      *
      * @return \ColumnChart
      */
-    public function isStacked($isStacked) {
+    public function isStacked($isStacked)
+    {
         if (is_bool($isStacked)) {
             $this->addOption(array('isStacked' => $isStacked));
         } else {
@@ -195,7 +201,8 @@ class ColumnChart extends Chart {
      *
      * @return \ColumnChart
      */
-    public function vAxis($vAxis) {
+    public function vAxis($vAxis)
+    {
         if (Helpers::is_vAxis($vAxis)) {
             $this->addOption($vAxis->toArray());
         } else {

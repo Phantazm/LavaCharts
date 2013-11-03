@@ -15,8 +15,8 @@ namespace Khill\Lavacharts\Configs;
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-class jsDate {
-
+class jsDate
+{
     /**
      * Holds the output of the jsDate object.
      *
@@ -60,7 +60,8 @@ class jsDate {
      *
      * @return \jsDate
      */
-    public function parseArray($array) {
+    public function parseArray($array)
+    {
         $this->year = isset($array[0]) ? $array[0] : null;
         $this->month = isset($array[1]) ? $array[1] : null;
         $this->day = isset($array[2]) ? $array[2] : null;
@@ -78,7 +79,8 @@ class jsDate {
      *
      * @return string Javscript date declaration
      */
-    public function toString() {
+    public function toString()
+    {
         if ($this->hour !== null && is_int($this->hour)) {
             if ($this->minute !== null && is_int($this->minute)) {
                 if ($this->second !== null && is_int($this->second)) {

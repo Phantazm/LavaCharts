@@ -25,8 +25,7 @@
         echo Lava::AreaChart('Stocks')->outputInto('stock_div');
         echo Lava::div(1000, 400);
 
-        if(Lava::hasErrors())
-        {
+        if (Lava::hasErrors()) {
             echo Lava::getErrors();
         }
     ?>
@@ -43,8 +42,7 @@ $stocksTable->addColumn('date', 'Date', 'date')
             ->addColumn('number', 'Projected', 'projected')
             ->addColumn('number', 'Closing', 'closing');
 
-for($a = 1; $a < 30; $a++)
-{
+for ($a = 1; $a < 30; $a++) {
     $data = array(
         new jsDate(2011, 5, $a), //Date
         rand(9500,10000),        //Area 1's data
@@ -59,7 +57,6 @@ Lava::AreaChart('Stocks')->title('Stock Market Trends');
 </div>
 </div>
 
-
 <div class="prettyprintContainer">
 <span class="prettyprintContainerLabel">View</span>
 <div class="prettyprintCode">
@@ -68,17 +65,15 @@ Lava::AreaChart('Stocks')->title('Stock Market Trends');
 echo Lava::AreaChart('Stocks')->outputInto('stock_div');
 echo Lava::div(1000, 400);
 
-if(Lava::hasErrors())
-{
+if (Lava::hasErrors()) {
     echo Lava::getErrors();
 }
 </pre>
 </div>
 </div>
 
-
 <script type="text/javascript">////
-   /* $(function() {
+   /* $(function () {
         ZeroClipboard.setDefaults({
             moviePath: "<?php URL::to('/'); ?>/js/ZeroClipboard.swf",
             forceHandCursor: true
@@ -86,29 +81,29 @@ if(Lava::hasErrors())
 
         var clip = new ZeroClipboard($('#clip_button'));
 
-        clip.on( 'load', function(client) {
+        clip.on( 'load', function (client) {
 //         alert( "movie is loaded" );
         } );
 
-        clip.on( 'complete', function(client, args) {
+        clip.on( 'complete', function (client, args) {
             this.style.display = 'none'; // "this" is the element that was clicked
             alert("Copied text to clipboard: " + args.text );
         } );
 
-        clip.on( 'mouseover', function(client) {
+        clip.on( 'mouseover', function (client) {
 //         alert("mouse over");
         } );
 
-        clip.on( 'mouseout', function(client) {
+        clip.on( 'mouseout', function (client) {
 //         alert("mouse out");
         } );
 
-        clip.on( 'mousedown', function(client) {
+        clip.on( 'mousedown', function (client) {
 
 //         alert("mouse down");
         } );
 
-        clip.on( 'mouseup', function(client) {
+        clip.on( 'mouseup', function (client) {
 //         alert("mouse up");
         } );
     });*/

@@ -17,9 +17,10 @@ namespace Khill\Lavacharts\Charts;
  */
 use Khill\Lavacharts\Charts\Chart;
 
-class PieChart extends Chart {
-
-    public function __construct($chartLabel) {
+class PieChart extends Chart
+{
+    public function __construct($chartLabel)
+    {
         parent::__construct($chartLabel);
 
         $this->defaults = array_merge($this->defaults, array(
@@ -43,7 +44,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function is3D($is3D) {
+    public function is3D($is3D)
+    {
         if (is_bool($is3D)) {
             $this->addOption(array('is3D' => $is3D));
         } else {
@@ -61,7 +63,7 @@ class PieChart extends Chart {
      *
      * The values of the array keys will correspond to each numbered piece
      * of the pie, starting from 0. You can skip slices by assigning the
-     * keys of the array as (int)s.
+     * keys of the array as (int) s.
      *
      * This would apply slice values to the first and fourth slice of the pie
      * Example: array(
@@ -74,7 +76,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function slices($slices) {
+    public function slices($slices)
+    {
         if (is_array($slices) && array_values_check($slices, 'class', 'slice')) {
             $pizzaBox = array();
 
@@ -98,7 +101,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function pieSliceBorderColor($pieSliceBorderColor) {
+    public function pieSliceBorderColor($pieSliceBorderColor)
+    {
         if (is_string($pieSliceBorderColor)) {
             $this->addOption(array('pieSliceBorderColor' => $pieSliceBorderColor));
         } else {
@@ -120,7 +124,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function pieSliceText($pieSliceText) {
+    public function pieSliceText($pieSliceText)
+    {
         $values = array(
             'percentage',
             'value',
@@ -145,7 +150,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function pieSliceTextStyle($textStyle) {
+    public function pieSliceTextStyle($textStyle)
+    {
         if (is_a($textStyle, 'textStyle')) {
             //$this->addOption($textStyle->toArray(__FUNCTION__));
             $this->addOption(array('pieSliceTextStyle' => $textStyle->values()));
@@ -164,7 +170,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function pieStartAngle($pieStartAngle) {
+    public function pieStartAngle($pieStartAngle)
+    {
         if (is_int($pieStartAngle)) {
             $this->addOption(array('pieStartAngle' => $pieStartAngle));
         } else {
@@ -182,7 +189,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function reverseCategories($reverseCategories) {
+    public function reverseCategories($reverseCategories)
+    {
         if (is_bool($reverseCategories)) {
             $this->addOption(array('reverseCategories' => $reverseCategories));
         } else {
@@ -202,7 +210,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function sliceVisibilityThreshold($sliceVizThreshold) {
+    public function sliceVisibilityThreshold($sliceVizThreshold)
+    {
         if (is_numeric($sliceVizThreshold)) {
             $this->addOption(array('sliceVisibilityThreshold' => $sliceVizThreshold));
         } else {
@@ -220,7 +229,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function pieResidueSliceColor($pieResidueSliceColor) {
+    public function pieResidueSliceColor($pieResidueSliceColor)
+    {
         if (is_string($pieResidueSliceColor)) {
             $this->addOption(array('pieResidueSliceColor' => $pieResidueSliceColor));
         } else {
@@ -238,7 +248,8 @@ class PieChart extends Chart {
      *
      * @return \PieChart
      */
-    public function pieResidueSliceLabel($pieResidueSliceLabel) {
+    public function pieResidueSliceLabel($pieResidueSliceLabel)
+    {
         if (is_string($pieResidueSliceLabel)) {
             $this->addOption(array('pieResidueSliceLabel' => $pieResidueSliceLabel));
         } else {

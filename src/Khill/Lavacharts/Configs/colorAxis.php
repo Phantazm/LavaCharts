@@ -15,8 +15,8 @@ namespace Khill\Lavacharts\Configs;
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-class colorAxis extends configOptions {
-
+class colorAxis extends configOptions
+{
     /**
      * Minimum value for chart color data.
      *
@@ -52,8 +52,8 @@ class colorAxis extends configOptions {
      *
      * @return \colorAxis
      */
-    public function __construct($config = array()) {
-
+    public function __construct($config = array())
+    {
         $this->options = array(
             'minValue',
             'maxValue',
@@ -73,7 +73,8 @@ class colorAxis extends configOptions {
      *
      * @return \colorAxis
      */
-    public function minValue($minValue) {
+    public function minValue($minValue)
+    {
         if (is_numeric($minValue)) {
             $this->minValue = $minValue;
         } else {
@@ -92,7 +93,8 @@ class colorAxis extends configOptions {
      *
      * @return \colorAxis
      */
-    public function maxValue($maxValue) {
+    public function maxValue($maxValue)
+    {
         if (is_numeric($maxValue)) {
             $this->maxValue = $maxValue;
         } else {
@@ -115,12 +117,14 @@ class colorAxis extends configOptions {
      *
      * @return \colorAxis
      */
-    public function values($values) {
+    public function values($values)
+    {
         if (is_array($values) && Helpers::array_values_check($values, 'numeric')) {
             $this->values = $values;
         } else {
             $this->type_error(__FUNCTION__, 'array', 'with values as [ int | float ]');
         }
+
         return $this;
     }
 
@@ -137,12 +141,14 @@ class colorAxis extends configOptions {
      *
      * @return \colorAxis
      */
-    public function colors($colors) {
+    public function colors($colors)
+    {
         if (is_array($colors) && Helpers::array_values_check($colors, 'string')) {
             $this->colors = $colors;
         } else {
             $this->type_error(__FUNCTION__, 'array', 'with values as strings');
         }
+
         return $this;
     }
 

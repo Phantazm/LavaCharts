@@ -14,8 +14,8 @@ namespace Khill\Lavacharts\Configs;
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-class DataCell {
-
+class DataCell
+{
     /**
      * The cell value.
      *
@@ -57,7 +57,8 @@ class DataCell {
      *
      * @return \DataCell
      */
-    public function __construct($v = null, $f = NULL, $p = NULL) {
+    public function __construct($v = null, $f = NULL, $p = NULL)
+    {
         $this->v = $v;
         $this->f = $f;
 
@@ -79,7 +80,8 @@ class DataCell {
      *
      * @return string JSON string representation of the data cell
      */
-    public function toJSON() {
+    public function toJSON()
+    {
         $output = array();
 
         if ($this->v != null) {

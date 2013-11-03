@@ -17,9 +17,10 @@ namespace Khill\Lavacharts\Charts;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class LineChart extends Chart {
-
-    public function __construct($chartLabel) {
+class LineChart extends Chart
+{
+    public function __construct($chartLabel)
+    {
         parent::__construct($chartLabel);
 
         $this->defaults = array_merge($this->defaults, array(
@@ -93,7 +94,8 @@ class LineChart extends Chart {
      *
      * @return \LineChart
      */
-    public function axisTitlesPosition($position) {
+    public function axisTitlesPosition($position)
+    {
         $values = array(
             'in',
             'out',
@@ -119,7 +121,8 @@ class LineChart extends Chart {
      *
      * @return \LineChart
      */
-    public function curveType($curveType) {
+    public function curveType($curveType)
+    {
         $values = array(
             'none',
             'function'
@@ -143,7 +146,8 @@ class LineChart extends Chart {
      *
      * @return \LineChart
      */
-    public function hAxis($hAxis) {
+    public function hAxis($hAxis)
+    {
         if (Helpers::is_hAxis($hAxis)) {
             $this->addOption($hAxis->toArray());
         } else {
@@ -160,7 +164,8 @@ class LineChart extends Chart {
      *
      * @return \LineChart
      */
-    public function isHtml($isHTML) {
+    public function isHtml($isHTML)
+    {
         if (is_bool($isHTML)) {
             $this->addOption(array('isHTML' => $isHTML));
         } else {
@@ -179,7 +184,8 @@ class LineChart extends Chart {
      *
      * @return \LineChart
      */
-    public function interpolateNulls($interpolateNulls) {
+    public function interpolateNulls($interpolateNulls)
+    {
         if (is_bool($interpolateNulls)) {
             $this->addOption(array('interpolateNulls' => $interpolateNulls));
         } else {
@@ -198,7 +204,8 @@ class LineChart extends Chart {
      *
      * @return \LineChart
      */
-    public function lineWidth($width) {
+    public function lineWidth($width)
+    {
         if (is_int($width)) {
             $this->addOption(array('lineWidth' => $width));
         } else {
@@ -216,7 +223,8 @@ class LineChart extends Chart {
      *
      * @return \LineChart
      */
-    public function pointSize($size) {
+    public function pointSize($size)
+    {
         if (is_int($size)) {
             $this->addOption(array('pointSize' => $size));
         } else {
@@ -235,7 +243,8 @@ class LineChart extends Chart {
      *
      * @return \LineChart
      */
-    public function vAxis($vAxis) {
+    public function vAxis($vAxis)
+    {
         if (Helpers::is_vAxis($vAxis)) {
             $this->addOption($vAxis->toArray());
         } else {

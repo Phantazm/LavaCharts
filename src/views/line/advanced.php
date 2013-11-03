@@ -3,8 +3,7 @@
     echo Lava::LineChart('Times')->outputInto('time_div');
     echo Lava::div(800, 500);
 
-    if(Lava::hasErrors())
-    {
+    if (Lava::hasErrors()) {
         echo Lava::getErrors();
     }
 ?>
@@ -21,8 +20,7 @@
 echo Lava::LineChart('Times')->outputInto('time_div');
 echo Lava::div(800, 500);
 
-if(Lava::hasErrors())
-{
+if (Lava::hasErrors()) {
     echo Lava::getErrors();
 }
 </pre>

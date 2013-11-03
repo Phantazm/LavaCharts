@@ -17,8 +17,8 @@ namespace Khill\Lavacharts\Charts;
 use Khill\Lavacharts\Lavacharts;
 use Khill\Lavacharts\Helpers\Helpers;
 
-class Chart {
-
+class Chart
+{
     public $chartType = null;
     public $chartLabel = null;
     public $dataTable = null;
@@ -28,7 +28,8 @@ class Chart {
     public $events = null;
     public $elementID = null;
 
-    public function __construct($chartLabel) {
+    public function __construct($chartLabel)
+    {
         $typePieces = explode('\\', get_class($this));
 
         $this->chartType = $typePieces[count($typePieces) - 1];
@@ -61,7 +62,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function setConfig($options = array()) {
+    public function setConfig($options = array())
+    {
         if (is_array($options) && count($options) > 0) {
             foreach ($options as $option => $value) {
                 if (in_array($option, $this->defaults)) {
@@ -91,7 +93,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function addOption($option) {
+    public function addOption($option)
+    {
         switch (gettype($option)) {
             case 'object':
                 $this->options = array_merge($this->options, $option->toArray());
@@ -118,7 +121,8 @@ class Chart {
      *
      * @return \DataTable DataTable object
      */
-    public function dataTable($data = null) {
+    public function dataTable($data = null)
+    {
         switch (gettype($data)) {
             case 'object':
                 if (get_class($data) == 'DataTable') {
@@ -153,7 +157,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function backgroundColor($backgroundColor) {
+    public function backgroundColor($backgroundColor)
+    {
         if (Helpers::is_backgroundColor($backgroundColor)) {
             $this->addOption($backgroundColor->toArray());
         } else {
@@ -173,7 +178,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function chartArea($chartArea) {
+    public function chartArea($chartArea)
+    {
         if (Helpers::is_chartArea($chartArea)) {
             $this->addOption($chartArea->toArray());
         } else {
@@ -191,7 +197,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function colors($colorArray) {
+    public function colors($colorArray)
+    {
         if (is_array($colorArray)) {
             $this->addOption(array('colors' => $colorArray));
         } else {
@@ -210,7 +217,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function events($events) {
+    public function events($events)
+    {
         $values = array(
             'animationfinish',
             'error',
@@ -243,7 +251,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function fontSize($fontSize) {
+    public function fontSize($fontSize)
+    {
         if (is_int($fontSize)) {
             $this->addOption(array('fontSize' => $fontSize));
         } else {
@@ -261,7 +270,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function fontName($fontName) {
+    public function fontName($fontName)
+    {
         if (is_string($fontName)) {
             $this->addOption(array('fontName' => $fontName));
         } else {
@@ -278,7 +288,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function height($height) {
+    public function height($height)
+    {
         if (is_int($height)) {
             $this->addOption(array('height' => $height));
         } else {
@@ -297,7 +308,8 @@ class Chart {
      *
      * @return \AreaChart
      */
-    public function legend($legendObj) {
+    public function legend($legendObj)
+    {
         if (Helpers::is_legend($legendObj)) {
             $this->addOption($legendObj->toArray());
         } else {
@@ -314,7 +326,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function title($title) {
+    public function title($title)
+    {
         if (is_string($title)) {
             $this->addOption(array('title' => (string) $title));
         } else {
@@ -334,7 +347,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function titlePosition($position) {
+    public function titlePosition($position)
+    {
         $values = array(
             'in',
             'out',
@@ -358,7 +372,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function titleTextStyle($textStyleObj) {
+    public function titleTextStyle($textStyleObj)
+    {
         if (Helpers::is_textStyle($textStyleObj)) {
             $this->addOption(array('titleTextStyle' => $textStyleObj->getValues()));
         } else {
@@ -377,7 +392,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function tooltip($tooltipObj) {
+    public function tooltip($tooltipObj)
+    {
         if (Helpers::is_tooltip($tooltipObj)) {
             $this->addOption($tooltipObj->toArray());
         } else {
@@ -394,7 +410,8 @@ class Chart {
      *
      * @return \Chart
      */
-    public function width($width) {
+    public function width($width)
+    {
         if (is_int($width)) {
             $this->addOption(array('width' => $width));
         } else {
@@ -409,7 +426,8 @@ class Chart {
      *
      * @param string $msg
      */
-    public function error($msg) {
+    public function error($msg)
+    {
         Lavacharts::_set_error($this->chartType . '(' . $this->chartLabel . ')', $msg);
     }
 
@@ -420,7 +438,8 @@ class Chart {
      * @param string Variable type
      * @param string Extra message to append to error
      */
-    public function type_error($val, $type, $extra = false) {
+    public function type_error($val, $type, $extra = false)
+    {
         $msg = sprintf(
                 'Invalid value for %s, must be type (%s)', $val, $type
         );
@@ -442,7 +461,8 @@ class Chart {
      *
      * @return string Javscript code blocks
      */
-    public function outputInto($elementID = null) {
+    public function outputInto($elementID = null)
+    {
         if ($this->dataTable === null) {
             $this->dataTable = $this->chartLabel;
         }
@@ -460,7 +480,8 @@ class Chart {
      *
      * @return string
      */
-    public function optionsToJSON() {
+    public function optionsToJSON()
+    {
         return json_encode($this->options);
     }
 

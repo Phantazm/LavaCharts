@@ -17,8 +17,8 @@ namespace Khill\Lavacharts\Configs;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class configOptions {
-
+class configOptions
+{
     /**
      * Output of the configOptions object.
      *
@@ -50,7 +50,8 @@ class configOptions {
      *
      * @return \configOptions
      */
-    public function __construct($config) {
+    public function __construct($config)
+    {
         $this->className = Helpers::get_real_class($this);
 
         if (is_array($config)) {
@@ -73,7 +74,8 @@ class configOptions {
      *
      * @param string $msg
      */
-    public function error($msg) {
+    public function error($msg)
+    {
         Lavacharts::_set_error($this->className, $msg);
     }
 
@@ -84,7 +86,8 @@ class configOptions {
      * @param string Variable type
      * @param string Extra message to append to error
      */
-    public function type_error($val, $type, $extra = false) {
+    public function type_error($val, $type, $extra = false)
+    {
         $msg = sprintf(
                 'Invalid value for %s, must be type (%s)', $val, $type
         );
@@ -105,7 +108,8 @@ class configOptions {
      *
      * @return array
      */
-    public function toArray($keyName = null) {
+    public function toArray($keyName = null)
+    {
         $this->output = array();
 
         foreach ($this->options as $option) {
@@ -127,7 +131,8 @@ class configOptions {
      *
      * @return array Array of the options of the object.
      */
-    public function getValues() {
+    public function getValues()
+    {
         $this->output = array();
 
         foreach ($this->options as $option) {

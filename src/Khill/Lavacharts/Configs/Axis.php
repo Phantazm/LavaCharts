@@ -17,8 +17,8 @@ namespace Khill\Lavacharts\Configs;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class Axis extends configOptions {
-
+class Axis extends configOptions
+{
     /**
      * The baseline for the axis.
      *
@@ -142,7 +142,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function __construct($config = array()) {
+    public function __construct($config = array())
+    {
         $this->options = array_merge($this->options, array(
             'baseline',
             'baselineColor',
@@ -177,7 +178,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function baseline($baseline) {
+    public function baseline($baseline)
+    {
         if (Helpers::is_jsDate($baseline)) {
             $this->baseline = $baseline->toString();
         } else {
@@ -202,7 +204,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function baselineColor($color) {
+    public function baselineColor($color)
+    {
         if (is_string($color)) {
             $this->baselineColor = $color;
         } else {
@@ -221,7 +224,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function direction($direction) {
+    public function direction($direction)
+    {
         if (is_int($direction) && ($direction == 1 || $direction == -1)) {
             $this->direction = $direction;
         } else {
@@ -246,7 +250,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function format($format) {
+    public function format($format)
+    {
         if (is_string($format)) {
             $this->format = $format;
         } else {
@@ -271,7 +276,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function gridlines($gridlines) {
+    public function gridlines($gridlines)
+    {
         $tmp = array();
 
         if (is_array($gridlines)) {
@@ -312,7 +318,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function minorGridlines($minorGridlines) {
+    public function minorGridlines($minorGridlines)
+    {
         $tmp = array();
 
         if (is_array($minorGridlines)) {
@@ -347,7 +354,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function logScale($log) {
+    public function logScale($log)
+    {
         if (is_bool($log)) {
             $this->logScale = $log;
         } else {
@@ -365,7 +373,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function textPosition($position) {
+    public function textPosition($position)
+    {
         $values = array(
             'out',
             'in',
@@ -388,7 +397,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function textStyle($textStyle) {
+    public function textStyle($textStyle)
+    {
         if (Helpers::is_textStyle($textStyle)) {
             $this->textStyle = $textStyle->getValues();
         } else {
@@ -405,7 +415,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function title($title) {
+    public function title($title)
+    {
         if (is_string($title)) {
             $this->title = $title;
         } else {
@@ -422,7 +433,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function titleTextStyle($titleTextStyle) {
+    public function titleTextStyle($titleTextStyle)
+    {
         if (Helpers::is_textStyle($titleTextStyle)) {
             $this->titleTextStyle = $titleTextStyle->getValues();
         } else {
@@ -445,7 +457,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function maxAlternation($alternation) {
+    public function maxAlternation($alternation)
+    {
         if (is_int($alternation)) {
             $this->maxAlternation = $alternation;
         } else {
@@ -466,7 +479,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function maxTextLines($maxTextLines) {
+    public function maxTextLines($maxTextLines)
+    {
         if (is_int($maxTextLines)) {
             $this->maxTextLines = $maxTextLines;
         } else {
@@ -489,7 +503,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function minTextSpacing($minTextSpacing) {
+    public function minTextSpacing($minTextSpacing)
+    {
         if (is_int($minTextSpacing)) {
             $this->minTextSpacing = $minTextSpacing;
         } else {
@@ -514,7 +529,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function showTextEvery($showTextEvery) {
+    public function showTextEvery($showTextEvery)
+    {
         if (is_int($showTextEvery)) {
             $this->showTextEvery = $showTextEvery;
         } else {
@@ -535,7 +551,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function maxValue($max) {
+    public function maxValue($max)
+    {
         if (is_int($max)) {
             $this->maxValue = $max;
         } else {
@@ -553,10 +570,11 @@ class Axis extends configOptions {
      * This option is only supported for a continuous axis.
      *
      * @param int $min Valid integer.
-     * 
+     *
      * @return \Axis
      */
-    public function minValue($min) {
+    public function minValue($min)
+    {
         if (is_int($min)) {
             $this->minValue = $min;
         } else {
@@ -584,7 +602,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function viewWindowMode($viewMode) {
+    public function viewWindowMode($viewMode)
+    {
         $values = array(
             'pretty',
             'maximized',
@@ -628,7 +647,8 @@ class Axis extends configOptions {
      *
      * @return \Axis
      */
-    public function viewWindow($viewWindow) {
+    public function viewWindow($viewWindow)
+    {
         $tmp = array();
 
         if (is_array($viewWindow)) {

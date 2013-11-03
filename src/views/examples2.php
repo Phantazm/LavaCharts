@@ -17,28 +17,28 @@
 ?>
 
 <script type="text/javascript">
-    $(document).ready( function() {
+    $(document).ready( function () {
         $('.subMenu').smint({
             'scrollSpeed' : 1000
         });
 
-        $(window).on('scroll', function() {
+        $(window).on('scroll', function () {
             var st = $(this).scrollTop()-180;
             $('.welcome').css({
                 'opacity' : (1 - st/120)
             });
         });
 
-        $('.prettyprintContainerLabel').each(function(){
+        $('.prettyprintContainerLabel').each(function () {
             var containerLabel = $(this);
             var containerWrapper = containerLabel.parent('div.prettyprintContainer');
             var codeContainer = containerWrapper.find('div.prettyprintCode');
             var section = containerWrapper.parent('div.section');
 
-            containerLabel.click(function(){
-                if(codeContainer.is(":visible")) { //Visible, Hidding
+            containerLabel.click(function () {
+                if (codeContainer.is(":visible")) { //Visible, Hidding
                     containerLabel.removeClass('collapse').addClass('expand');
-                    codeContainer.slideUp(300, function() {
+                    codeContainer.slideUp(300, function () {
                         containerWrapper.addClass('hidden');
                     });
                 } else { //Hidden, Opening
@@ -53,7 +53,7 @@
 </script>
 
 </head>
-<body onload="setTimeout(function() { window.scrollTo(0, 0) }, 100);">
+<body onload="setTimeout(function () { window.scrollTo(0, 0) }, 100);">
     <a href="https://github.com/kevinkhill/LavaCharts" id="forkMe">
         <img src="<?php echo url($lavaAssetPath.'images/forkme.png'); ?>" alt="Fork me on GitHub">
     </a>
@@ -70,7 +70,7 @@
         </div>
 
 <!-- Top Section -->
-	<div class="section sTop">
+    <div class="section sTop">
             <div class="inner">
                 <div class="welcome">
                     <table>
@@ -95,12 +95,11 @@
                 </div>
             </div>
             <br class="clear">
-	</div>
+    </div>
 <!-- /Top Section -->
 
-
 <!-- Line Charts -->
-	<div class="section s1">
+    <div class="section s1">
             <div class="inner">
                 <h1 class="exampleHeading">Line Charts</h1>
     <!-- Basic -->
@@ -122,8 +121,7 @@ $stocksTable->addColumn('date', 'Date', 'date')
             ->addColumn('number', 'Projected', 'projected')
             ->addColumn('number', 'Closing', 'closing');
 
-for($a = 1; $a < 30; $a++)
-{
+for ($a = 1; $a < 30; $a++) {
     $data = array(
         new jsDate(2011, 5, $a), //Date
         rand(9500,10000),        //Line 1's data
@@ -137,7 +135,6 @@ Lava::LineChart('Stocks')->title('Stock Market Trends');</pre>
                     </div>
                 </div>
 
-
                 <div class="prettyprintContainer hidden">
                     <span class="prettyprintContainerLabel expand">
                         View
@@ -148,8 +145,7 @@ Lava::LineChart('Stocks')->title('Stock Market Trends');</pre>
 echo Lava::LineChart('Stocks')->outputInto('stock_div');
 echo Lava::div(1000, 400);
 
-if(Lava::hasErrors())
-{
+if (Lava::hasErrors()) {
     echo Lava::getErrors();
 }</pre>
                     </div>
@@ -175,8 +171,7 @@ $timesTable->addColumn('date', 'Dates', 'dates')
            ->addColumn('number', 'Estimated Time', 'schedule')
            ->addColumn('number', 'Actual Time', 'run');
 
-for($a = 1; $a < 30; $a++)
-{
+for ($a = 1; $a < 30; $a++) {
     $data = array(
         Lava::jsDate(2013, 8, $a), //Date object
         rand(5,30),                //Line 1's data
@@ -194,7 +189,6 @@ $legendStyle = Lava::textStyle()->color('#F3BB00')
 $legend = Lava::legend()->position('bottom')
                         ->alignment('start')
                         ->textStyle($legendStyle);
-
 
 //Or pass in arrays with set options into the function's constructor
 $tooltip = Lava::tooltip(array(
@@ -295,51 +289,50 @@ Lava::LineChart('Times')->setConfig($config);
 echo Lava::LineChart('Times')->outputInto('time_div');
 echo Lava::div(800, 500);
 
-if(Lava::hasErrors())
-{
+if (Lava::hasErrors()) {
     echo Lava::getErrors();
 }</pre>
                     </div>
                 </div>
     <!-- /Advanced -->
             </div>
-	</div>
+    </div>
 <!-- /Line Charts -->
 
-	<div class="section s2">
+    <div class="section s2">
             <div class="inner">
                 <h1 class="exampleHeading">Area Charts</h1>
                 <h2>Basic</h2>
                 <h2>Advanced</h2>
             </div>
-	</div>
+    </div>
 <!--End Area Charts-->
 
-	<div class="section s3">
+    <div class="section s3">
             <div class="inner">
                 <h1 class="exampleHeading">Pie Charts</h1>
                 <h2>Basic</h2>
                 <h2>Advanced</h2>
             </div>
-	</div>
+    </div>
 <!--End Pie Charts-->
 
-	<div class="section s4">
+    <div class="section s4">
             <div class="inner">
                 <h1 class="exampleHeading">Column Charts</h1>
                 <h2>Basic</h2>
                 <h2>Advanced</h2>
             </div>
-	</div>
+    </div>
 <!--End Column Charts-->
 
-	<div class="section s5">
+    <div class="section s5">
             <div class="inner">
                 <h1 class="exampleHeading">Geo Charts</h1>
                 <h2>Basic</h2>
                 <h2>Advanced</h2>
             </div>
-	</div>
+    </div>
 <!--End Geo Charts-->
 
 </div>

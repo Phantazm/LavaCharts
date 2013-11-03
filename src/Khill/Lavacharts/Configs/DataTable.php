@@ -25,8 +25,8 @@ namespace Khill\Lavacharts\Configs;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class DataTable {
-
+class DataTable
+{
     /**
      * Holds the information defining the columns.
      *
@@ -65,7 +65,8 @@ class DataTable {
      *
      * @return \DataTable
      */
-    public function addColumn($typeOrDescriptionArray, $opt_label = '', $opt_id = '') {
+    public function addColumn($typeOrDescriptionArray, $opt_label = '', $opt_id = '')
+    {
         $types = array(
             'string',
             'number',
@@ -95,7 +96,7 @@ class DataTable {
                                     if (is_string($value)) {
                                         $descArray[$key] = $value;
                                     } else {
-                                        $this->error('Invalid description array value, must be type (string).');
+                                        $this->error('Invalid description array value, must be type (string) .');
                                     }
                                 }
                             } else {
@@ -119,13 +120,13 @@ class DataTable {
                     if (is_string($opt_label)) {
                         $descArray['label'] = $opt_label;
                     } else {
-                        $this->error('Invalid opt_label, must be type (string).');
+                        $this->error('Invalid opt_label, must be type (string) .');
                     }
 
                     if (is_string($opt_id)) {
                         $descArray['id'] = $opt_id;
                     } else {
-                        $this->error('Invalid opt_id, must be type (string).');
+                        $this->error('Invalid opt_id, must be type (string) .');
                     }
                 } else {
                     $this->error('Invalid type, must be type (string) with the value ' . Helpers::array_string($types));
@@ -135,7 +136,7 @@ class DataTable {
                 break;
 
             default:
-                $this->error('Invalid type or description array, must be type (string) or (array).');
+                $this->error('Invalid type or description array, must be type (string) or (array) .');
                 break;
         }
 
@@ -173,7 +174,8 @@ class DataTable {
      *
      * @return \DataTable
      */
-    public function addRow($opt_cellArray = null) {
+    public function addRow($opt_cellArray = null)
+    {
         $props = array(
             'v',
             'f',
@@ -218,7 +220,7 @@ class DataTable {
                     }
                 }
             } else {
-                $this->error('Invalid row definition, must be type (array)');
+                $this->error('Invalid row definition, must be type (array) ');
             }
         }
 
@@ -233,19 +235,21 @@ class DataTable {
      *
      * @return \DataTable
      */
-    public function addRows($arrayOfRows) {
+    public function addRows($arrayOfRows)
+    {
         if (Helpers::array_is_multi($arrayOfRows)) {
             foreach ($arrayOfRows as $row) {
                 $this->addRow($row);
             }
         } else {
-            $this->error('Invalid value for addRows, must be type (array), multi-dimensional.');
+            $this->error('Invalid value for addRows, must be type (array) , multi-dimensional.');
         }
 
         return $this;
     }
 
-    public function toJSON() {
+    public function toJSON()
+    {
         return json_encode($this);
     }
 
@@ -254,7 +258,8 @@ class DataTable {
      *
      * @param string $msg error message.
      */
-    private function error($msg) {
+    private function error($msg)
+    {
         Lavacharts::_set_error(get_class($this), $msg);
     }
 

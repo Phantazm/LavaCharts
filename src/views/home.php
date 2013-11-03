@@ -16,12 +16,12 @@
 ?>
 
 <script type="text/javascript">
-    $(document).ready( function() {
+    $(document).ready( function () {
         $('.subMenu').smint({
             'scrollSpeed' : 1000
         });
 
-        $(window).on('scroll', function() {
+        $(window).on('scroll', function () {
             var st = $(this).scrollTop()-180;
             $('.welcome').css({
                 'opacity' : (1 - st/150)
@@ -31,7 +31,7 @@
 </script>
 
 </head>
-<body onload="setTimeout(function() { window.scrollTo(0, 0) }, 100);">
+<body onload="setTimeout(function () { window.scrollTo(0, 0) }, 100);">
     <a href="https://github.com/kevinkhill/LavaCharts" id="forkMe">
         <img src="<?php echo url($lavaAssetPath.'images/forkme.png'); ?>" alt="Fork me on GitHub">
     </a>
@@ -46,7 +46,6 @@
                 <a href="#" id="s5" class="subNavBtn end">API</a>
             </div>
         </div>
-
 
     <div class="section sTop">
             <div class="inner">
@@ -74,7 +73,6 @@
             </div>
             <br class="clear">
     </div>
-
 
 <!--Intro-->
     <div class="section s1">
@@ -115,9 +113,8 @@
     </div>
 <!--/Installing-->
 
-
 <!--Usage-->
-	<div class="section s3">
+    <div class="section s3">
             <div class="inner left">
                 <h1 class="heading">Usage</h1>
                 <ul class="arrows">
@@ -146,8 +143,7 @@ $stocksTable->addColumn('number', 'Official', 'official');</pre><br/>
                 <p>The addRow() function signature, follows the order in which the columns were added.</p>
                 <p>So here, array[0] is for 'count', array[1] is for 'projected' and array[2] is for 'official'</p>
                  <pre class="prettyprint inline">
-for($a = 1; $a < 25; $a++)
-{
+for ($a = 1; $a < 25; $a++) {
     $data[0] = $a;              //Count
     $data[1] = rand(800,1000);  //Projected Data
     $data[2] = rand(800,1000);  //Official Data
@@ -169,7 +165,6 @@ $config = array(
                 <pre class="prettyprint inline">
 Lava::LineChart('Stocks');->setConfig($config);</pre><br/>
 
-
                 <h3>On to The View</h3>
                 <p>There are two ways to get your chart to display on your page.</p>
                 <p>With the first method, LavaCharts will generate everything you need.</p>
@@ -185,15 +180,13 @@ echo Lava::LineChart('Stocks')->outputInto('myStocks');</pre><br/>
 
                 <p>You can also use these two functions to test for errors in the setup and configuration of the chart.</p>
                 <pre class="prettyprint inline">
-if(Lava::hasErrors())
-{
+if (Lava::hasErrors()) {
     echo Lava::getErrors();
 }</pre><br/>
 
             </div>
     </div>
 <!--/Installing-->
-
 
 <!--Examples-->
     <div class="section s4">
@@ -205,7 +198,6 @@ if(Lava::hasErrors())
             </div>
     </div>
 <!--/Examples-->
-
 
 <!--API-->
     <div class="section s5">

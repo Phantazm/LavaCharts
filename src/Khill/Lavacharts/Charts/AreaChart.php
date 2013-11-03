@@ -17,9 +17,10 @@ namespace Khill\Lavacharts\Charts;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class AreaChart extends Chart {
-
-    public function __construct($chartLabel) {
+class AreaChart extends Chart
+{
+    public function __construct($chartLabel)
+    {
         parent::__construct($chartLabel);
 
         $this->defaults = array_merge($this->defaults, array(
@@ -95,7 +96,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function areaOpacity($opacity) {
+    public function areaOpacity($opacity)
+    {
         if (is_float($opacity) && $opacity < 1.0 && $opacity > 0.0) {
             $this->addOption(array('areaOpacity' => $opacity));
         } else {
@@ -116,7 +118,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function axisTitlesPosition($position) {
+    public function axisTitlesPosition($position)
+    {
         $values = array('in', 'out', 'none');
 
         if (in_array($position, $values)) {
@@ -137,7 +140,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function hAxis($hAxis) {
+    public function hAxis($hAxis)
+    {
         if (Helpers::is_hAxis($hAxis)) {
             $this->addOption($hAxis->toArray());
         } else {
@@ -154,7 +158,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function isHtml($isHTML) {
+    public function isHtml($isHTML)
+    {
         if (is_bool($isHTML)) {
             $this->addOption(array('isHTML' => $isHTML));
         } else {
@@ -171,7 +176,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function isStacked($isStacked) {
+    public function isStacked($isStacked)
+    {
         if (is_bool($isStacked)) {
             $this->addOption(array('isStacked' => $isStacked));
         } else {
@@ -190,7 +196,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function interpolateNulls($interpolateNulls) {
+    public function interpolateNulls($interpolateNulls)
+    {
         if (is_bool($interpolateNulls)) {
             $this->addOption(array('interpolateNulls' => $interpolateNulls));
         } else {
@@ -209,7 +216,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function lineWidth($width) {
+    public function lineWidth($width)
+    {
         if (is_int($width)) {
             $this->addOption(array('lineWidth' => $width));
         } else {
@@ -227,7 +235,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function pointSize($size) {
+    public function pointSize($size)
+    {
         if (is_int($size)) {
             $this->addOption(array('pointSize' => $size));
         } else {
@@ -246,7 +255,8 @@ class AreaChart extends Chart {
      *
      * @return \AreaChart
      */
-    public function vAxis($vAxis) {
+    public function vAxis($vAxis)
+    {
         if (Helpers::is_vAxis($vAxis)) {
             $this->addOption($vAxis->toArray());
         } else {

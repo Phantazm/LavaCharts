@@ -15,8 +15,8 @@ namespace Khill\Lavacharts\Configs;
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-class sizeAxis extends configOptions {
-
+class sizeAxis extends configOptions
+{
     /**
      * Maximum radius of the largest possible bubble, in pixels.
      *
@@ -57,7 +57,8 @@ class sizeAxis extends configOptions {
      *
      * @return \sizeAxis
      */
-    public function __construct($config = array()) {
+    public function __construct($config = array())
+    {
         $this->options = array(
             'maxSize',
             'maxValue',
@@ -75,7 +76,8 @@ class sizeAxis extends configOptions {
      *
      * @return \sizeAxis
      */
-    function maxSize($maxSize) {
+    public function maxSize($maxSize)
+    {
         if (is_numeric($maxSize)) {
             $this->maxSize = $maxSize;
         } else {
@@ -93,7 +95,8 @@ class sizeAxis extends configOptions {
      *
      * @return \sizeAxis
      */
-    function maxValue($maxValue) {
+    public function maxValue($maxValue)
+    {
         if (is_numeric($maxValue)) {
             $this->maxValue = $maxValue;
         } else {
@@ -110,7 +113,8 @@ class sizeAxis extends configOptions {
      *
      * @return \sizeAxis
      */
-    function minSize($minSize) {
+    public function minSize($minSize)
+    {
         if (is_numeric($minSize)) {
             $this->minSize = $minSize;
         } else {
@@ -128,7 +132,8 @@ class sizeAxis extends configOptions {
      *
      * @return \sizeAxis
      */
-    function minValue($minValue) {
+    public function minValue($minValue)
+    {
         if (is_numeric($minValue)) {
             $this->minValue = $minValue;
         } else {

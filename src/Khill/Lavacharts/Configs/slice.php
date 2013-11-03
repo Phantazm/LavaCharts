@@ -17,8 +17,8 @@ namespace Khill\Lavacharts\Configs;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class slice extends configOptions {
-
+class slice extends configOptions
+{
     /**
      * The slice fill color.
      *
@@ -47,7 +47,8 @@ class slice extends configOptions {
      *
      * @return \tooltip
      */
-    public function __construct($config = array()) {
+    public function __construct($config = array())
+    {
         $this->options = array(
             'color',
             'offset',
@@ -64,7 +65,8 @@ class slice extends configOptions {
      *
      * @return \slice
      */
-    public function color($color) {
+    public function color($color)
+    {
         if (is_string($color)) {
             $this->color = $color;
         } else {
@@ -82,7 +84,8 @@ class slice extends configOptions {
      *
      * @return \slice
      */
-    public function offset($offset) {
+    public function offset($offset)
+    {
         if (is_float($offset) && Helpers::between(0.0, $offset, 1.0)) {
             $this->offset = $offset;
         } else {
@@ -99,7 +102,8 @@ class slice extends configOptions {
      *
      * @return \slice
      */
-    public function textStyle($textStyle) {
+    public function textStyle($textStyle)
+    {
         if (Helpers::is_textStyle($textStyle)) {
             $this->textStyle = $textStyle->values();
         } else {

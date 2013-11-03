@@ -17,8 +17,8 @@ namespace Khill\Lavacharts\Configs;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class hAxis extends Axis {
-
+class hAxis extends Axis
+{
     /**
      * Allow container to cutoff labels.
      *
@@ -78,7 +78,8 @@ class hAxis extends Axis {
      *
      * @return \hAxis
      */
-    public function __construct($config = array()) {
+    public function __construct($config = array())
+    {
         $this->options = array_merge($this->options, array(
             'allowContainerBoundaryTextCutoff',
             'slantedText',
@@ -104,7 +105,8 @@ class hAxis extends Axis {
      *
      * @return \hAxis
      */
-    public function allowContainerBoundaryTextCutoff($cutoff) {
+    public function allowContainerBoundaryTextCutoff($cutoff)
+    {
         if (is_bool($cutoff)) {
             $this->allowContainerBoundaryTextCutoff = $cutoff;
         } else {
@@ -129,7 +131,8 @@ class hAxis extends Axis {
      *
      * @return \hAxis
      */
-    public function slantedText($slant) {
+    public function slantedText($slant)
+    {
         if (is_bool($slant) && $this->textPosition == 'out') {
             $this->slantedText = $slant;
         } else {
@@ -150,7 +153,8 @@ class hAxis extends Axis {
      *
      * @return \hAxis
      */
-    public function slantedTextAngle($angle) {
+    public function slantedTextAngle($angle)
+    {
         if (is_int($angle) && Helpers::between(1, $angle, 90)) {
             $this->slantedTextAngle = $angle;
         } else {
@@ -175,7 +179,8 @@ class hAxis extends Axis {
      *
      * @return \hAxis
      */
-    public function maxAlternation($alternation) {
+    public function maxAlternation($alternation)
+    {
         if (is_int($alternation)) {
             $this->maxAlternation = $alternation;
         } else {
@@ -197,7 +202,8 @@ class hAxis extends Axis {
      *
      * @return \hAxis
      */
-    public function maxTextLines($maxTextLines) {
+    public function maxTextLines($maxTextLines)
+    {
         if (is_int($maxTextLines)) {
             $this->maxTextLines = $maxTextLines;
         } else {
@@ -222,7 +228,8 @@ class hAxis extends Axis {
      *
      * @return \hAxis
      */
-    public function minTextSpacing($minTextSpacing) {
+    public function minTextSpacing($minTextSpacing)
+    {
         if (is_int($minTextSpacing)) {
             $this->minTextSpacing = $minTextSpacing;
         } else {
@@ -248,7 +255,8 @@ class hAxis extends Axis {
      *
      * @return \hAxis
      */
-    public function showTextEvery($showTextEvery) {
+    public function showTextEvery($showTextEvery)
+    {
         if (is_int($showTextEvery)) {
             $this->showTextEvery = $showTextEvery;
         } else {

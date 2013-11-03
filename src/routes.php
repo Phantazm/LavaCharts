@@ -5,35 +5,35 @@ View::share('lavaAssetPath', 'packages/khill/lavacharts/');
 /**
  * LavaChart Home
  */
-Route::get('/lavacharts', function() {
+Route::get('/lavacharts', function () {
     return View::make('lavacharts::home');
 });
 
 /**
  * LavaChart Examples
  */
-Route::get('/lavacharts/examples', function() {
+Route::get('/lavacharts/examples', function () {
     return View::make('lavacharts::examples');
 });
 
 /**
  * LavaChart Examples
  */
-Route::get('/lavacharts/examples2', function() {
+Route::get('/lavacharts/examples2', function () {
     return View::make('lavacharts::examples2');
 });
 
 /**
  * LavaChart Home
  */
-Route::get('/lavacharts/tests', function() {
+Route::get('/lavacharts/tests', function () {
     return View::make('lavacharts::tests');
 });
 
 /**
  * Advanced Line Chart
  */
-Route::get('/line/basic', function() {
+Route::get('/line/basic', function () {
     $stocksTable = Lava::DataTable('Stocks');
 
     $stocksTable->addColumn('date', 'Date', 'date')
@@ -58,7 +58,7 @@ Route::get('/line/basic', function() {
 /**
  * Advanced Line Chart
  */
-Route::get('/line/advanced', function() {
+Route::get('/line/advanced', function () {
     $timesTable = Lava::DataTable('Times');
 
     $timesTable->addColumn('date', 'Dates', 'dates')
@@ -83,7 +83,6 @@ Route::get('/line/advanced', function() {
     $legend = Lava::legend()->position('bottom')
             ->alignment('start')
             ->textStyle($legendStyle);
-
 
     //Or pass in arrays with set options into the function's constructor
     $tooltip = Lava::tooltip(array(

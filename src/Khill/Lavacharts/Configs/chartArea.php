@@ -17,8 +17,8 @@ namespace Khill\Lavacharts\Configs;
  */
 use Khill\Lavacharts\Helpers\Helpers;
 
-class chartArea extends configOptions {
-
+class chartArea extends configOptions
+{
     /**
      * How far to draw the chart from the left border.
      *
@@ -54,7 +54,8 @@ class chartArea extends configOptions {
      *
      * @return \chartArea
      */
-    public function __construct($config = array()) {
+    public function __construct($config = array())
+    {
         $this->options = array(
             'left',
             'top',
@@ -72,7 +73,8 @@ class chartArea extends configOptions {
      *
      * @return \chartArea
      */
-    public function left($left) {
+    public function left($left)
+    {
         if (Helpers::is_int_or_percent($left)) {
             $this->left = $left;
         } else {
@@ -89,7 +91,8 @@ class chartArea extends configOptions {
      *
      * @return \chartArea
      */
-    public function top($top) {
+    public function top($top)
+    {
         if (Helpers::is_int_or_percent($top)) {
             $this->top = $top;
         } else {
@@ -106,7 +109,8 @@ class chartArea extends configOptions {
      *
      * @return \chartArea
      */
-    public function width($width) {
+    public function width($width)
+    {
         if (Helpers::is_int_or_percent($width)) {
             $this->width = $width;
         } else {
@@ -123,7 +127,8 @@ class chartArea extends configOptions {
      *
      * @return \chartArea
      */
-    public function height($height) {
+    public function height($height)
+    {
         if (Helpers::is_int_or_percent($height)) {
             $this->height = $height;
         } else {

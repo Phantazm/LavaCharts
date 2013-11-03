@@ -2,8 +2,8 @@
 
 namespace Khill\Lavacharts\Helpers;
 
-class Helpers {
-
+class Helpers
+{
     /**
      * Magic method as an alias to is_a($object, $type)
      *
@@ -15,7 +15,8 @@ class Helpers {
      *
      * @return boolean
      */
-    public static function __callStatic($function, $configObject) {
+    public static function __callStatic($function, $configObject)
+    {
         if ($function[2] == '_') {
             $functionParts = explode('_', $function);
             $is_a = $functionParts[1];
@@ -41,7 +42,8 @@ class Helpers {
      *
      * @return string Converted array to string.
      */
-    public static function array_string($defaultValues) {
+    public static function array_string($defaultValues)
+    {
         if (is_array($defaultValues)) {
             $output = '[ ';
 
@@ -65,7 +67,8 @@ class Helpers {
      * @return boolean Returns true is first element in the array is an array,
      * otherwise false.
      */
-    public static function array_is_multi($array) {
+    public static function array_is_multi($array)
+    {
         if (is_array($array)) {
             if (count(array_filter($array, 'is_array')) > 0) {
                 return true;
@@ -86,7 +89,8 @@ class Helpers {
      *
      * @return boolean Returns true is all values match type, otherwise false.
      */
-    public static function array_values_check($array, $type, $className = '') {
+    public static function array_values_check($array, $type, $className = '')
+    {
         $status = true;
 
         if (is_array($array) && is_string($type)) {
@@ -132,10 +136,11 @@ class Helpers {
      *
      * @return boolean Returns true if valid in or percent, otherwise false.
      */
-    public static function is_int_or_percent($val) {
+    public static function is_int_or_percent($val)
+    {
         if (is_int($val) === true) {
             return true;
-        } else if (is_string($val) === true) {
+        } elseif (is_string($val) === true) {
             if (ctype_digit($val) === true) {
                 return true;
             } else {
@@ -170,7 +175,8 @@ class Helpers {
      *
      * @return boolean
      */
-    public static function between($lower, $test, $upper, $includeLimits = true) {
+    public static function between($lower, $test, $upper, $includeLimits = true)
+    {
         $lowerCheck = (is_int($lower) || is_float($lower) ? true : false);
         $testCheck = (is_int($test) || is_float($test) ? true : false);
         $upperCheck = (is_int($upper) || is_float($upper) ? true : false);
@@ -193,7 +199,8 @@ class Helpers {
      *
      * @return string Class Name
      */
-    public static function get_real_class($obj) {
+    public static function get_real_class($obj)
+    {
         if (is_object($obj)) {
             $classname = get_class($obj);
 

@@ -15,8 +15,8 @@ namespace Khill\Lavacharts\Configs;
  * @link http://kevinkhill.github.io/Codeigniter-gCharts/ GitHub Project Page
  * @license http://opensource.org/licenses/MIT MIT
  */
-class textStyle extends configOptions {
-
+class textStyle extends configOptions
+{
     /**
      * Color of the text.
      *
@@ -45,7 +45,8 @@ class textStyle extends configOptions {
      *
      * @return \tooltip
      */
-    public function __construct($config = array()) {
+    public function __construct($config = array())
+    {
         $this->options = array(
             'color',
             'fontName',
@@ -64,7 +65,8 @@ class textStyle extends configOptions {
      *
      * @return \textStyle
      */
-    public function color($color) {
+    public function color($color)
+    {
         if (is_string($color)) {
             $this->color = $color;
         } else {
@@ -83,7 +85,8 @@ class textStyle extends configOptions {
      *
      * @return \textStyle
      */
-    public function fontName($fontName) {
+    public function fontName($fontName)
+    {
         if (is_string($fontName)) {
             $this->fontName = $fontName;
         } else {
@@ -102,7 +105,8 @@ class textStyle extends configOptions {
      *
      * @return \textStyle
      */
-    public function fontSize($fontSize) {
+    public function fontSize($fontSize)
+    {
         if (is_int($fontSize)) {
             $this->fontSize = $fontSize;
         } else {

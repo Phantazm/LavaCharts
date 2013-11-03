@@ -7,8 +7,8 @@ use Illuminate\Config\Repository;
 use Khill\Lavacharts\Configs\jsDate;
 use Khill\Lavacharts\Configs\textStyle;
 
-class Lavacharts {
-
+class Lavacharts
+{
     /**
      * Illuminate view environment.
      *
@@ -135,12 +135,13 @@ class Lavacharts {
     /**
      * Create a new Lavacharts instance.
      *
-     * @param  Illuminate\View\Environment  $view
-     * @param  Illuminate\Config\Repository  $config
+     * @param Illuminate\View\Environment  $view
+     * @param Illuminate\Config\Repository $config
      *
      * @return void
      */
-    public function __construct(Environment $view, Repository $config) {
+    public function __construct(Environment $view, Repository $config)
+    {
         $this->view = $view;
         $this->config = $config;
     }
@@ -157,7 +158,8 @@ class Lavacharts {
      *
      * @throws Exception
      */
-    public function __call($member, $arguments) {
+    public function __call($member, $arguments)
+    {
         if (in_array($member, self::$configClasses)) {
             return self::_config_object_factory($member, empty($arguments[0]) ? array() : $arguments);
         } else {
@@ -183,7 +185,8 @@ class Lavacharts {
      *
      * @return mixed Returns Charts or DataTables
      */
-    private static function _chart_and_table_factory($objType, $objLabel) {
+    private static function _chart_and_table_factory($objType, $objLabel)
+    {
         if (is_string($objLabel) && $objLabel != '') {
             if (!isset(self::$chartsAndTables[$objType][$objLabel])) {
                 $class = $objType == 'DataTable' ? self::$rootSpace . 'Configs\\' . $objType : self::$rootSpace . 'Charts\\' . $objType;
@@ -207,13 +210,16 @@ class Lavacharts {
      *
      * @throws Exception
      */
-    private static function _config_object_factory($configObject, $options) {
+    private static function _config_object_factory($configObject, $options)
+    {
         if (in_array($configObject, self::$configClasses)) {
             if ($configObject == 'jsDate') {
                 $jsDate = new jsDate();
+
                 return $jsDate->parseArray($options);
             } else {
                 $class = self::$rootSpace . 'Configs\\' . $configObject;
+
                 return empty($options[0]) ? new $class() : new $class($options[0]);
             }
         } else {
@@ -227,7 +233,7 @@ class Lavacharts {
      * Calling with no arguments will return a div with the ID set to what was
      * given to the outputInto() function.
      *
-     * Passing two (int)s will set the width and height respectivly and the div
+     * Passing two (int) s will set the width and height respectivly and the div
      * ID will be set via the string given in the outputInto() function.
      *
      *
@@ -242,7 +248,8 @@ class Lavacharts {
      *
      * @return string HTML div element.
      */
-    public static function div($width = 0, $height = 0) {
+    public static function div($width = 0, $height = 0)
+    {
         if ($width == 0 || $height == 0) {
             if (isset(self::$elementID)) {
                 return sprintf('<div id="%s"></div>', self::$elementID);
@@ -253,6 +260,7 @@ class Lavacharts {
             if ((is_int($width) && $width > 0) && (is_int($height) && $height > 0)) {
                 if (isset(self::$elementID)) {
                     $format = '<div id="%s" style="width:%spx;height:%spx;"></div>';
+
                     return sprintf($format, self::$elementID, $width, $height);
                 } else {
                     $this->_set_error(__METHOD__, 'Error, output element ID is not set.');
@@ -269,7 +277,8 @@ class Lavacharts {
      *
      * @return string Javascript code blocks.
      */
-    public static function getOutput() {
+    public static function getOutput()
+    {
         return self::$output;
     }
 
@@ -280,7 +289,8 @@ class Lavacharts {
      * @return boolean true if any errors we created while building charts,
      * otherwise false.
      */
-    public static function hasErrors() {
+    public static function hasErrors()
+    {
         return self::$hasError;
     }
 
@@ -294,7 +304,8 @@ class Lavacharts {
      * @return mixed null if there are no errors, otherwise a string with the
      * errors
      */
-    public static function getErrors() {
+    public static function getErrors()
+    {
         if (self::$hasError === true && count(self::$errorLog) > 0) {
             $errors = '';
 
@@ -316,7 +327,8 @@ class Lavacharts {
      * @param string Where the error occured.
      * @param string What the error was.
      */
-    public static function _set_error($where, $what) {
+    public static function _set_error($where, $what)
+    {
         self::$hasError = true;
         self::$errorLog[$where] = $what;
     }
@@ -333,7 +345,8 @@ class Lavacharts {
      *
      * @return string Javascript code block.
      */
-    public static function _build_script_block($chart) {
+    public static function _build_script_block($chart)
+    {
         self::$elementID = $chart->elementID;
 
         $out = self::$googleAPI . PHP_EOL;
@@ -392,7 +405,7 @@ class Lavacharts {
 //            foreach($chart->events as $event)
 //            {
 //                $out .= sprintf('google.visualization.events.addListener(chart, "%s", ', $event);
-//                $out .= sprintf('function(event) { %s.%s(event); });', $chart->chartType, $event).PHP_EOL;
+//                $out .= sprintf('function (event) { %s.%s(event); });', $chart->chartType, $event).PHP_EOL;
 //            }
 //        }
 
@@ -416,17 +429,15 @@ class Lavacharts {
     /*
       public static function _build_event_callbacks($chartType, $chartEvents)
       {
-      $script = sprintf('if(typeof %s !== "object") { %s = {}; }', $chartType, $chartType).PHP_EOL.PHP_EOL;
+      $script = sprintf('if (typeof %s !== "object") { %s = {}; }', $chartType, $chartType).PHP_EOL.PHP_EOL;
 
-      foreach($chartEvents as $event)
-      {
-      $script .= sprintf('%s.%s = function(event) {', $chartType, $event).PHP_EOL;
+      foreach ($chartEvents as $event) {
+      $script .= sprintf('%s.%s = function (event) {', $chartType, $event).PHP_EOL;
 
       $callback = self::$callbackPath.$chartType.'.'.$event.'.js';
       $callbackScript = file_get_contents($callback);
 
-      if($callbackScript !== false)
-      {
+      if ($callbackScript !== false) {
       $script .= $callbackScript.PHP_EOL;
       } else {
       self::_set_error(__METHOD__, 'Error loading javascript file, in '.$callback.'.js');
@@ -446,11 +457,11 @@ class Lavacharts {
     /**
      * Enables/Disables Global Text Styles
      *
-     * @param boolean $enabled
+     * @param boolean   $enabled
      * @param textStyle $globalTextStyle
      */
-    public static function globalTextStyle(boolean $enabled, textStyle $globalTextStyle = null) {
-
+    public static function globalTextStyle(boolean $enabled, textStyle $globalTextStyle = null)
+    {
         $this->config->set('lavacharts::globalTextStyleEnabled', $enabled);
 
         if (!is_null($globalTextStyle)) {
